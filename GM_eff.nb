@@ -1,0 +1,967 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     34228,        959]
+NotebookOptionsPosition[     29242,        798]
+NotebookOutlinePosition[     29722,        817]
+CellTagsIndexPosition[     29679,        814]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Quit", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.4921467751527157`*^9, 3.492146776183146*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"$FeynRulesPath", "=", 
+   RowBox[{"SetDirectory", "[", "\"\<<YOUR FR PATH>\>\"", "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.41265862251538*^9, 3.412658649947229*^9}, {
+  3.423415585782702*^9, 3.423415597189939*^9}, {3.4234163173467493`*^9, 
+  3.4234163227881193`*^9}, {3.602217995985836*^9, 3.6022179998047447`*^9}, {
+  3.6272250139168673`*^9, 3.627225019803317*^9}, {3.716115334842388*^9, 
+  3.7161153707702723`*^9}, {3.71622324035823*^9, 3.716223245349001*^9}, {
+  3.716224610216984*^9, 3.716224612368168*^9}, {3.716224754183076*^9, 
+  3.7162247563911552`*^9}, {3.716305736863021*^9, 3.716305739286683*^9}, {
+  3.7163914538089933`*^9, 3.716391457980517*^9}, {3.733608715895611*^9, 
+  3.73360871721189*^9}, {3.745849936902421*^9, 3.745849942185831*^9}, {
+  3.7462716428577757`*^9, 3.746271647428068*^9}}],
+
+Cell[BoxData[
+ RowBox[{"<<", "FeynRules`"}]], "Input",
+ CellChangeTimes->{{3.547535564344927*^9, 3.547535564971527*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["The Georgi-Machacek (GM) Model", "Title",
+ CellChangeTimes->{{3.6242046763422813`*^9, 3.6242046876458893`*^9}}],
+
+Cell["We first load in the Georgi-Machacek Model model-file", "Text",
+ CellChangeTimes->{{3.745852685919924*^9, 3.745852690769389*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.419073170860696*^9, 3.419073182827229*^9}, {
+  3.602218019181407*^9, 3.602218020115342*^9}, {3.62348203003272*^9, 
+  3.623482032128873*^9}, {3.62559445517922*^9, 3.62559446042483*^9}, {
+  3.627225032859611*^9, 3.627225084578452*^9}, {3.716115389616897*^9, 
+  3.716115413064665*^9}, {3.71639167323701*^9, 3.716391691093204*^9}, {
+  3.716391733113532*^9, 3.7163917335023108`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"LoadModel", "[", "\"\<GM_effective_partialcomplex.fr\>\"", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.4022069973481913`*^9, 3.402207011768662*^9}, 
+   3.4022081212072697`*^9, {3.402208250379383*^9, 3.402208254043104*^9}, 
+   3.4027466057480917`*^9, {3.403240270135737*^9, 3.403240277228945*^9}, 
+   3.403266503388291*^9, {3.403267649630335*^9, 3.40326765417397*^9}, {
+   3.403269919787421*^9, 3.403269921965273*^9}, {3.403347551273425*^9, 
+   3.403347555049163*^9}, 3.4044490490588417`*^9, {3.411744339876704*^9, 
+   3.411744340012457*^9}, {3.4121886924550533`*^9, 3.412188699157571*^9}, 
+   3.412188808811866*^9, 3.4121888580521603`*^9, {3.412450464077868*^9, 
+   3.412450464378695*^9}, {3.413715097460478*^9, 3.41371509757642*^9}, {
+   3.41440825334604*^9, 3.414408254159686*^9}, {3.41862573831756*^9, 
+   3.4186257392223186`*^9}, {3.4190731862389174`*^9, 3.419073187003003*^9}, {
+   3.419073336802393*^9, 3.4190733374513063`*^9}, {3.4190828041801767`*^9, 
+   3.4190828048079023`*^9}, 3.542453089813714*^9, 3.547534567644828*^9, {
+   3.6022180331507263`*^9, 3.602218034154315*^9}, {3.716305755829331*^9, 
+   3.716305759997568*^9}, {3.718630425875845*^9, 3.718630427006819*^9}, {
+   3.718926841228109*^9, 3.718926841924861*^9}, {3.719231720316292*^9, 
+   3.719231722036397*^9}, {3.728655814279931*^9, 3.728655815021204*^9}, {
+   3.740338706585455*^9, 3.740338716822839*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LoadRestriction", "[", 
+   RowBox[{"\"\<Cabibbo.rst\>\"", ",", "\"\<Massless.rst\>\""}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.7458499652220697`*^9, 3.745849998093915*^9}, {
+  3.745850040467361*^9, 3.745850041276422*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+   RowBox[{"LoadRestriction", "[", 
+    RowBox[{"\"\<DiagonalCKM.rst\>\"", ",", "\"\<Massless.rst\>\""}], "]"}], 
+   ";"}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.7458500542184877`*^9, 3.745850063866868*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["The GM model lagrangian", "Section",
+ CellChangeTimes->{{3.411910065227421*^9, 3.411910071535137*^9}, {
+  3.624204667100444*^9, 3.624204695421753*^9}}],
+
+Cell["\<\
+By default the GM model is loaded in Feynman Gauge (i.e. FeynmanGauge=True). \
+The full lagrangian in feynman gauge can be accessed immediatly via\
+\>", "Text",
+ CellChangeTimes->{{3.411910016771447*^9, 3.411910062087528*^9}, {
+  3.411910094087652*^9, 3.411910096590087*^9}, {3.411910215381351*^9, 
+  3.4119102162371798`*^9}, {3.624204804162891*^9, 3.624204822647955*^9}, {
+  3.624204884766046*^9, 3.624204893151622*^9}, {3.746271768600317*^9, 
+  3.7462717885709753`*^9}}],
+
+Cell[BoxData["LGM"], "Input",
+ CellChangeTimes->{{3.411910106011015*^9, 3.411910106351081*^9}, {
+  3.624204704243165*^9, 3.624204705304317*^9}}],
+
+Cell["\<\
+The Lagrangian for the effective coupling can be accessed via:\
+\>", "Text",
+ CellChangeTimes->{{3.746271800558818*^9, 3.746271814929205*^9}}],
+
+Cell[BoxData["LGMeffC"], "Input",
+ CellChangeTimes->{{3.746271816459737*^9, 3.746271822291935*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Gauge sector", "Subsubsection",
+ CellChangeTimes->{{3.4119102216473637`*^9, 3.411910224608881*^9}}],
+
+Cell["\<\
+The part of the lagrangian representing the gauge sector can be accessed via\
+\>", "Text",
+ CellChangeTimes->{{3.4119101255458603`*^9, 3.411910192225008*^9}, {
+  3.411910235813308*^9, 3.4119102509651337`*^9}}],
+
+Cell[BoxData["LGauge"], "Input",
+ CellChangeTimes->{{3.411910181169772*^9, 3.411910184667088*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Scalar sector", "Subsubsection",
+ CellChangeTimes->{{3.4119102216473637`*^9, 3.411910224608881*^9}, {
+  3.411910274288354*^9, 3.41191027703699*^9}}],
+
+Cell["\<\
+The part of the lagrangian representing the extended scalar sector can be \
+accessed via\
+\>", "Text",
+ CellChangeTimes->{{3.4119101255458603`*^9, 3.411910192225008*^9}, {
+  3.411910235813308*^9, 3.4119102509651337`*^9}, {3.41191028690167*^9, 
+  3.411910287709094*^9}, {3.624204925193535*^9, 3.6242049264936132`*^9}, {
+  3.624204997297559*^9, 3.624204998743548*^9}, {3.6242152061584387`*^9, 
+  3.624215212738056*^9}}],
+
+Cell[BoxData["LScalar"], "Input",
+ CellChangeTimes->{{3.411910181169772*^9, 3.411910184667088*^9}, {
+  3.411910290186841*^9, 3.411910292005392*^9}, {3.624204929727079*^9, 
+  3.624204932127887*^9}, {3.6242147622068777`*^9, 3.624214764019405*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Fermion sector", "Subsubsection",
+ CellChangeTimes->{{3.4119102216473637`*^9, 3.411910224608881*^9}, {
+  3.4119103528868923`*^9, 3.411910357404933*^9}}],
+
+Cell["\<\
+The part of the lagrangian representing the fermion sector can be accessed via\
+\>", "Text",
+ CellChangeTimes->{{3.4119101255458603`*^9, 3.411910192225008*^9}, {
+  3.411910235813308*^9, 3.4119102509651337`*^9}, {3.4119103873434134`*^9, 
+  3.411910388077118*^9}}],
+
+Cell[BoxData["LFermions"], "Input",
+ CellChangeTimes->{{3.411910181169772*^9, 3.411910184667088*^9}, {
+  3.411910379677638*^9, 3.4119103807255*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Yukawa sector", "Subsubsection",
+ CellChangeTimes->{{3.4119102216473637`*^9, 3.411910224608881*^9}, {
+  3.411910393742139*^9, 3.411910394852953*^9}}],
+
+Cell["\<\
+The part of the lagrangian representing the Yukawa sector can be accessed via\
+\
+\>", "Text",
+ CellChangeTimes->{{3.4119101255458603`*^9, 3.411910192225008*^9}, {
+  3.411910235813308*^9, 3.4119102509651337`*^9}, {3.411910399061659*^9, 
+  3.411910400421185*^9}}],
+
+Cell[BoxData["LYukawa"], "Input",
+ CellChangeTimes->{{3.411910181169772*^9, 3.411910184667088*^9}, {
+  3.4119104032372026`*^9, 3.411910404165523*^9}}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Checking the Lagrangian", "Section",
+ CellChangeTimes->{{3.4234156496121893`*^9, 3.423415657027569*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FeynmanGauge", "=", "False"}], ";"}]], "Input",
+ CellChangeTimes->{{3.4234159280429783`*^9, 3.423415934798614*^9}, {
+  3.588417616520516*^9, 3.588417617062751*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Checking hermiticity", "Subsection",
+ CellChangeTimes->{{3.4234156831783743`*^9, 3.423415689540821*^9}}],
+
+Cell["The hermiticity of the Lagrangian can be checked via", "Text",
+ CellChangeTimes->{{3.423415694323595*^9, 3.423415707867804*^9}}],
+
+Cell[BoxData[
+ RowBox[{"CheckHermiticity", "[", "LGM", "]"}]], "Input",
+ CellChangeTimes->{{3.414763473002973*^9, 3.4147634845507174`*^9}, {
+  3.5884182415538187`*^9, 3.5884182416874647`*^9}, {3.624205049979954*^9, 
+  3.624205051112173*^9}}],
+
+Cell["\<\
+The same command can be applied to the flavor - expanded Lagrangian\
+\>", "Text",
+ CellChangeTimes->{{3.423415721582508*^9, 3.423415739787958*^9}}],
+
+Cell[BoxData[
+ RowBox[{"CheckHermiticity", "[", 
+  RowBox[{"LGM", ",", 
+   RowBox[{"FlavorExpand", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.414763604111637*^9, 3.4147636044973803`*^9}, {
+  3.6242050529673347`*^9, 3.624205054208926*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Checking the mass spectrum", "Subsection",
+ CellChangeTimes->{{3.423415831209465*^9, 3.423415835278742*^9}}],
+
+Cell["\<\
+FeynRules can check whether all the values of the masses given in the model \
+file ar ein agreement with the masses given in the Lagrangian:\
+\>", "Text",
+ CellChangeTimes->{{3.423415751305388*^9, 3.423415792594919*^9}}],
+
+Cell[BoxData[
+ RowBox[{"CheckMassSpectrum", "[", "LScalar", "]"}]], "Input",
+ CellChangeTimes->{{3.414736325829801*^9, 3.414736326065997*^9}, 
+   3.4147528281460342`*^9, {3.624205057320355*^9, 3.624205059216099*^9}, {
+   3.624205291219987*^9, 3.624205292532325*^9}, 3.624214478256811*^9, {
+   3.6242148252068653`*^9, 3.624214826925099*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Checking the kinetic terms", "Subsection",
+ CellChangeTimes->{{3.423415843532096*^9, 3.42341584850035*^9}}],
+
+Cell["\<\
+In the same way, FeynRules can check whether all kinetic terms are correctly \
+normalized :\
+\>", "Text",
+ CellChangeTimes->{{3.423415798800013*^9, 3.423415817964087*^9}}],
+
+Cell[BoxData[
+ RowBox[{"CheckKineticTermNormalisation", "[", 
+  RowBox[{"LGM", ",", 
+   RowBox[{"FlavorExpand", "\[Rule]", "SU2W"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.4147636651636972`*^9, 3.414763667250185*^9}, {
+  3.6242050630083847`*^9, 3.624205064088174*^9}}],
+
+Cell["\<\
+The same command cen be used at the level of the flavor - expanded Lagrangian \
+:\
+\>", "Text",
+ CellChangeTimes->{{3.423415868906054*^9, 3.4234158864202538`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"CheckKineticTermNormalisation", "[", 
+  RowBox[{"LGM", ",", 
+   RowBox[{"FlavorExpand", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.62420506609689*^9, 3.624205067128241*^9}}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Calculation of the Feynman rules", "Section",
+ CellChangeTimes->{{3.411910637332127*^9, 3.41191064360071*^9}}],
+
+Cell["\<\
+We will calculate now explicitly the Feynman rules for the GM in Feynman \
+gauge.\
+\>", "Text",
+ CellChangeTimes->{{3.41191064804084*^9, 3.411910672936666*^9}, {
+  3.7458500895722837`*^9, 3.745850089944108*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FeynmanGauge", "=", "True"}], ";"}]], "Input",
+ CellChangeTimes->{{3.411910674121689*^9, 3.4119106799564953`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Gauge sector", "Subsection",
+ CellChangeTimes->{{3.411910690443768*^9, 3.411910692233274*^9}}],
+
+Cell[BoxData["LGauge"], "Input",
+ CellChangeTimes->{{3.7163060489763327`*^9, 3.7163060508041477`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"vertsGauge", "=", 
+   RowBox[{"FeynmanRules", "[", 
+    RowBox[{"LGauge", ",", 
+     RowBox[{"FlavorExpand", "\[Rule]", "SU2W"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{
+  3.40274690437012*^9, {3.402746954727231*^9, 3.4027469691642714`*^9}, {
+   3.4032592998045692`*^9, 3.403259304564069*^9}, 3.403267976055098*^9, {
+   3.411910705212987*^9, 3.411910705553741*^9}, {3.423415993272615*^9, 
+   3.42341600147605*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Scalar Sector", "Subsection",
+ CellChangeTimes->{
+  3.404470070069872*^9, {3.624214936064766*^9, 3.6242149372900763`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"vertsHiggs", "=", 
+   RowBox[{"FeynmanRules", "[", "LScalar", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.411910728609757*^9, 3.41191072908109*^9}, {
+   3.423416009086747*^9, 3.423416012982971*^9}, 3.423416065626593*^9, {
+   3.6242149402131166`*^9, 3.624214941868855*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Matter sector", "Subsection"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"vertsFermions", "=", 
+   RowBox[{"FeynmanRules", "[", "LFermions", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.402205118991502*^9, 3.4022051228508387`*^9}, 
+   3.402747846432675*^9, {3.4032613449872217`*^9, 3.403261349245253*^9}, {
+   3.403266977133403*^9, 3.4032669793125563`*^9}, {3.411910788644576*^9, 
+   3.411910789233307*^9}, {3.423416034294303*^9, 3.423416042739814*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Yukawa sector", "Subsection"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"vertsYukawa", "=", 
+   RowBox[{"FeynmanRules", "[", 
+    RowBox[{"LYukawa", ",", 
+     RowBox[{"FlavorExpand", "\[Rule]", "True"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.403266987858165*^9, 3.4032670026080303`*^9}, {
+  3.411910826105542*^9, 3.411910826777452*^9}, {3.423416089772278*^9, 
+  3.423416095643961*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["LGhost sector", "Subsection",
+ CellChangeTimes->{{3.411910849714159*^9, 3.411910851088325*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"vertsGhosts", "=", 
+   RowBox[{"FeynmanRules", "[", 
+    RowBox[{"LGhost", ",", 
+     RowBox[{"FlavorExpand", "\[Rule]", "SU2W"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.403266987858165*^9, 3.4032670026080303`*^9}, {
+   3.411910826105542*^9, 3.411910826777452*^9}, {3.411910857580064*^9, 
+   3.411910870001601*^9}, 3.415256462464088*^9, {3.423416107236608*^9, 
+   3.423416112835993*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Effective Operator", "Subsection",
+ CellChangeTimes->{{3.745850134847487*^9, 3.745850141002214*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"vertesEffs", "=", 
+   RowBox[{"FeynmanRules", "[", "LGMeffC", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.745850142741931*^9, 3.74585015596846*^9}}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["LO Outputs and interfaces", "Section",
+ CellChangeTimes->{
+  3.411910944409371*^9, {3.412185514054689*^9, 3.412185517014236*^9}, {
+   3.745852744321705*^9, 3.745852744900319*^9}}],
+
+Cell["\<\
+If you don\[CloseCurlyQuote]t need the effective coupling part, just remove \
+LGMeffC in the list of the Lagrangians\
+\>", "Text",
+ CellChangeTimes->{{3.746271874456979*^9, 3.74627190441451*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["FeynArts output", "Subsection",
+ CellChangeTimes->{{3.411911000132907*^9, 3.411911005135379*^9}}],
+
+Cell["The FeynArts output for the GM can be obtained via", "Text",
+ CellChangeTimes->{{3.411910955110715*^9, 3.4119109690877657`*^9}, {
+  3.411911062212926*^9, 3.4119110634765463`*^9}, {3.74585028818233*^9, 
+  3.745850288519828*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"FeynmanGauge", " ", "=", " ", "False"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"WriteFeynArtsOutput", "[", 
+  RowBox[{
+  "LGauge", ",", "LScalar", ",", "LFermions", ",", "LYukawa", ",", "LGMeffC", 
+   ",", 
+   RowBox[{"FlavorExpand", "\[Rule]", "SU2W"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.411911018354619*^9, 3.4119110196967573`*^9}, {
+   3.412185470680571*^9, 3.412185480912915*^9}, {3.41245048911446*^9, 
+   3.4124504892674522`*^9}, 3.414315634453483*^9, {3.423416180751266*^9, 
+   3.423416182892613*^9}, {3.624215005341929*^9, 3.624215007218308*^9}, {
+   3.73360925760303*^9, 3.733609276482088*^9}, 3.733655845595612*^9, {
+   3.745850180857954*^9, 3.745850190555603*^9}, {3.745850251713892*^9, 
+   3.745850264828742*^9}}],
+
+Cell["FeynArts also supports the Feynman gauge", "Text",
+ CellChangeTimes->{{3.4121854851672792`*^9, 3.412185494183435*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"FeynmanGauge", " ", "=", " ", "True"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"WriteFeynArtsOutput", "[", 
+  RowBox[{
+  "LGauge", ",", "LScalar", ",", "LFermions", ",", "LYukawa", ",", "LGhost", 
+   ",", "LGMeffC", ",", 
+   RowBox[{"FlavorExpand", "\[Rule]", "SU2W"}], ",", 
+   RowBox[{"Output", "\[Rule]", "\"\<GM.mod\>\""}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.411911018354619*^9, 3.4119110196967573`*^9}, {
+   3.412185470680571*^9, 3.412185506240796*^9}, {3.4234161971513453`*^9, 
+   3.423416209716672*^9}, {3.624215021244478*^9, 3.624215029833962*^9}, 
+   3.745850216225533*^9, {3.745850269577291*^9, 3.7458502723126087`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Sherpa output", "Subsection",
+ CellChangeTimes->{{3.4119110460271273`*^9, 3.411911049405038*^9}}],
+
+Cell["The Sherpa output for the GM can be obtained via", "Text",
+ CellChangeTimes->{{3.411910955110715*^9, 3.4119109690877657`*^9}, {
+  3.411911059590749*^9, 3.4119110601885567`*^9}, {3.74585028492523*^9, 
+  3.7458502852266617`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"FeynmanGauge", "=", "False"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"WriteSHOutput", "[", 
+  RowBox[{"LGM", ",", "LGMeffC"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.4119110943383636`*^9, 3.41191110054212*^9}, {
+  3.412185455856553*^9, 3.412185456628922*^9}, {3.4143156544792233`*^9, 
+  3.414315668290971*^9}, {3.423416222700699*^9, 3.423416235756197*^9}, {
+  3.624215040761606*^9, 3.624215042457138*^9}, {3.745850279611405*^9, 
+  3.745850282777028*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["CalcHep output", "Subsection",
+ CellChangeTimes->{{3.4119110460271273`*^9, 3.411911049405038*^9}, {
+  3.411911150323291*^9, 3.4119111515122623`*^9}}],
+
+Cell["CalcHep also supports the Feynman gauge", "Text",
+ CellChangeTimes->{{3.4121853722243843`*^9, 3.412185380407339*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"FeynmanGauge", "=", "True"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"WriteCHOutput", "[", 
+   RowBox[{"LGM", ",", "LGMeffC"}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.4119110943383636`*^9, 3.41191110054212*^9}, {
+  3.412185409690489*^9, 3.4121854275198507`*^9}, {3.412450479942018*^9, 
+  3.4124504817138367`*^9}, {3.624215059864361*^9, 3.6242150606286287`*^9}, {
+  3.74585024389207*^9, 3.74585024673956*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.412185367693318*^9, 3.412185407947097*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Whizard output", "Subsection",
+ CellChangeTimes->{{3.4119110460271273`*^9, 3.411911049405038*^9}, {
+  3.411911150323291*^9, 3.4119111515122623`*^9}, {3.5074389822322817`*^9, 
+  3.507438983565652*^9}}],
+
+Cell["Whizard also supports the Feynman gauge", "Text",
+ CellChangeTimes->{{3.4121853722243843`*^9, 3.412185380407339*^9}, {
+  3.507438990997637*^9, 3.507438992828805*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"FeynmanGauge", "=", "True"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"WriteWOOutput", "[", 
+   RowBox[{"LGM", ",", "LGMeffC"}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.4119110943383636`*^9, 3.41191110054212*^9}, {
+  3.412185409690489*^9, 3.4121854275198507`*^9}, {3.412450479942018*^9, 
+  3.4124504817138367`*^9}, {3.507438986168689*^9, 3.507438987383316*^9}, {
+  3.624215064431674*^9, 3.624215066222713*^9}, {3.7458502958666143`*^9, 
+  3.745850297874758*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.412185367693318*^9, 3.412185407947097*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["UFO output", "Subsection",
+ CellChangeTimes->{{3.4119110460271273`*^9, 3.411911049405038*^9}, {
+  3.411911150323291*^9, 3.4119111515122623`*^9}, {3.5074389822322817`*^9, 
+  3.507438983565652*^9}, {3.507439158477231*^9, 3.507439159035309*^9}}],
+
+Cell["MG5 also supports the Feynman gauge", "Text",
+ CellChangeTimes->{{3.4121853722243843`*^9, 3.412185380407339*^9}, {
+  3.507438990997637*^9, 3.507438992828805*^9}, {3.625337165353299*^9, 
+  3.625337166451006*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FeynmanGauge", "=", "True"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"WriteUFO", "[", 
+   RowBox[{"LGM", ",", "LGMeffC"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{
+  3.412185367693318*^9, 3.412185407947097*^9, {3.5074391727475023`*^9, 
+   3.5074391804929533`*^9}, {3.624215074750321*^9, 3.624215083364794*^9}, {
+   3.71630645951138*^9, 3.71630646099417*^9}, 3.716306558614489*^9, {
+   3.740338748188785*^9, 3.740338840593521*^9}, 3.745850302869308*^9}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.728666427698401*^9, 3.728666428117298*^9}}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["NLO (QCD) Outputs", "Section",
+ CellChangeTimes->{{3.745852754421664*^9, 3.745852760770288*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+  "Renormalization", " ", "and", " ", "output", " ", "to", " ", "FA"}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.745852865706142*^9, 3.745852873861302*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FeynmanGauge", "=", "True"}], ";"}]], "Input",
+ CellChangeTimes->{{3.745858086858348*^9, 3.7458580940583897`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"LGaugeren", "=", 
+   RowBox[{"OnShellRenormalization", "[", 
+    RowBox[{"LGauge", ",", 
+     RowBox[{"QCDOnly", "\[Rule]", "True"}], ",", 
+     RowBox[{"FlavorMixing", "\[Rule]", "False"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"LFermionren", "=", 
+   RowBox[{"OnShellRenormalization", "[", 
+    RowBox[{"LFermions", ",", 
+     RowBox[{"QCDOnly", "\[Rule]", "True"}], ",", 
+     RowBox[{"FlavorMixing", "\[Rule]", "False"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"LYukawaren", "=", 
+   RowBox[{"OnShellRenormalization", "[", 
+    RowBox[{"LYukawa", ",", 
+     RowBox[{"QCDOnly", "\[Rule]", "True"}], ",", 
+     RowBox[{"FlavorMixing", "\[Rule]", "False"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"LGhostren", "=", 
+   RowBox[{"OnShellRenormalization", "[", 
+    RowBox[{"LGhost", ",", 
+     RowBox[{"QCDOnly", "\[Rule]", "True"}], ",", 
+     RowBox[{"FlavorMixing", "\[Rule]", "False"}]}], "]"}]}], ";"}]}], "Input",\
+
+ CellChangeTimes->{{3.745852876679921*^9, 3.745852956176571*^9}, {
+  3.74585299086618*^9, 3.745853031511711*^9}, {3.7458579977627087`*^9, 
+  3.74585801567855*^9}, {3.745858056803446*^9, 3.745858058293023*^9}, {
+  3.745858123718671*^9, 3.745858126398065*^9}, {3.746019693156786*^9, 
+  3.746019801564105*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+  "SetDirectory", "[", 
+   "\"\</Users/ycwu/Library/Mathematica/Applications/FeynArts/Models\>\"", 
+   "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"WriteFeynArtsOutput", "[", 
+   RowBox[{
+   "LGaugeren", ",", "LFermionren", ",", "LYukawaren", ",", "LGhostren", ",", 
+    "LScKin", ",", 
+    RowBox[{"(*", 
+     RowBox[{"LScPot", ",", "LGMeffC", ","}], "*)"}], 
+    RowBox[{"Output", "\[Rule]", "\"\<GMQCDrenoL\>\""}]}], 
+   RowBox[{"(*", 
+    RowBox[{",", 
+     RowBox[{"GenericFile", "\[Rule]", "False"}]}], "*)"}], "]"}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "LScPot", " ", "and", " ", "LGMeffC", " ", "is", " ", "not", " ", 
+     "necessary", " ", "for", " ", "QCD"}], "-", 
+    RowBox[{"NLO", " ", 
+     RowBox[{"CT", "/", "R2"}], " ", "calculation"}]}], "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.7458582925380993`*^9, 3.745858295322459*^9}, {
+   3.745858334227085*^9, 3.7458583666067657`*^9}, 3.745858743693697*^9, {
+   3.746019808368482*^9, 3.7460198419205027`*^9}, {3.7460444630424337`*^9, 
+   3.746044481833624*^9}, 3.746044521125121*^9, {3.746045204026876*^9, 
+   3.7460452100029087`*^9}, {3.746051833477016*^9, 3.746051870509108*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"Computation", " ", "of", " ", "the", " ", "Counterterms"}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.745853038133278*^9, 3.745853045875593*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Quit", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.7458530477836027`*^9, 3.7458530490535088`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", "\"\<<YOUR FeynArts PATH>\>\"", "]"}], ";", 
+  " ", 
+  RowBox[{"(*", 
+   RowBox[{"!!", 
+    RowBox[{"!", 
+     RowBox[{
+      RowBox[{"NOTE", " ", "THAT", " ", "FeynArts"}], "-", 
+      RowBox[{
+      "3.7", " ", "should", " ", "be", " ", "used", " ", "or", " ", "you", 
+       " ", "can", " ", "just", " ", "skip", " ", "this", " ", "step", " ", 
+       "and", " ", "just", " ", "use", " ", 
+       RowBox[{"the", " ", ".", "nlo"}], " ", "file", " ", "we", " ", 
+       "provide"}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"<<", "FeynArts`"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetDirectory", "[", "\"\<<YOUR FR PATH>\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "NLOCT`"}]}], "Input",
+ CellChangeTimes->{{3.7458530521002502`*^9, 3.745853087689735*^9}, {
+  3.745859020761674*^9, 3.7458590464243097`*^9}, {3.746271935944049*^9, 
+  3.7462719996860933`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"WriteCT", "[", 
+   RowBox[{
+   "\"\<GMQCDrenoL/GMQCDrenoL\>\"", ",", "\"\<GMQCDrenoL/GMQCDrenoL\>\"", ",", 
+    RowBox[{"Output", "\[Rule]", "\"\<GMQCDreno\>\""}], ",", 
+    RowBox[{"LabelInternal", "\[Rule]", "True"}], ",", 
+    RowBox[{"QCDOnly", "\[Rule]", "True"}], ",", 
+    RowBox[{"KeptIndices", "\[Rule]", 
+     RowBox[{"{", "}"}]}], ",", 
+    RowBox[{"ZeroMom", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{"aS", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"F", "[", "7", "]"}], ",", 
+          RowBox[{"V", "[", "4", "]"}], ",", 
+          RowBox[{"-", 
+           RowBox[{"F", "[", "7", "]"}]}]}], "}"}], ",", "0"}], "}"}], 
+      "}"}]}], ",", 
+    RowBox[{"ComplexMass", "\[Rule]", "False"}], ",", 
+    RowBox[{"Exclude4ScalarsCT", "\[Rule]", "True"}]}], "]"}], "//", 
+  "Timing"}]], "Input",
+ CellChangeTimes->{{3.745853089120213*^9, 3.745853147543592*^9}, {
+   3.7458532271767263`*^9, 3.745853235973774*^9}, 3.7458591442395906`*^9, {
+   3.745859197148911*^9, 3.745859201303981*^9}, {3.746045413568952*^9, 
+   3.7460454273147697`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+  "Quit", " ", "and", " ", "reload", " ", "FeynRules", " ", "and", " ", "the",
+    " ", "model"}], "*)"}]], "Input",
+ CellChangeTimes->{{3.745853068428114*^9, 3.7458530690187683`*^9}, {
+  3.745853240142146*^9, 3.745853256400683*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Quit", "[", "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.746047832686906*^9, 3.746047834734899*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$FeynRulesPath", "=", 
+   RowBox[{"SetDirectory", "[", "\"\<<YOUR FR PATH>\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "FeynRules`"}]}], "Input",
+ CellChangeTimes->{{3.746047892911734*^9, 3.746047900634194*^9}, {
+  3.746272028122552*^9, 3.7462720330681543`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"LoadModel", "[", "\"\<GM_effective_partialcomplex.fr\>\"", "]"}], 
+  "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"LoadRestriction", "[", 
+     RowBox[{"\"\<Cabibbo.rst\>\"", ",", "\"\<Massless.rst\>\""}], "]"}], 
+    ";"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"LoadRestriction", "[", 
+     RowBox[{"\"\<DiagonalCKM.rst\>\"", ",", "\"\<Massless.rst\>\""}], "]"}], 
+    ";"}], " ", "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.7460479398967657`*^9, 3.746047981608533*^9}, {
+  3.746105437044448*^9, 3.746105451557926*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Get", "[", "\"\<GMQCDreno.nlo\>\"", "]"}], ";", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Load", " ", ".", "nlo"}], " ", "File", " ", "after", " ", "Load",
+     " ", "Model", " ", 
+    RowBox[{"(", 
+     RowBox[{"and", " ", "restrictions"}], ")"}]}], "*)"}]}]], "Input",
+ CellChangeTimes->{{3.74585325861985*^9, 3.745853293212957*^9}, {
+  3.745873534099965*^9, 3.74587354526367*^9}, {3.746019915626976*^9, 
+  3.7460199218396*^9}, {3.746047914631548*^9, 3.7460479156040697`*^9}, {
+  3.7460539527202883`*^9, 3.746053987260086*^9}}],
+
+Cell[BoxData[
+ RowBox[{"WriteUFO", "[", 
+  RowBox[{
+  "LGauge", ",", "LFermions", ",", "LYukawa", ",", "LGhost", ",", "LScalar", 
+   ",", "LGMeffC", ",", 
+   RowBox[{"UVCounterterms", "\[Rule]", "UV$vertlist"}], ",", 
+   RowBox[{"R2Vertices", "\[Rule]", "R2$vertlist"}], ",", 
+   RowBox[{"Output", "\[Rule]", "\"\<GM_NLO\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.745853294764517*^9, 3.745853343521143*^9}, {
+  3.745873588508527*^9, 3.745873627442481*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7458532793970957`*^9, 3.7458532807397537`*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7458709255544853`*^9, 3.745870936866536*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{1280, 699},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"10.4 for Mac OS X x86 (32-bit, 64-bit Kernel) (April 16, \
+2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 120, 2, 43, "Input"],
+Cell[668, 24, 848, 14, 43, "Input"],
+Cell[1519, 40, 120, 2, 43, "Input"],
+Cell[CellGroupData[{
+Cell[1664, 46, 117, 1, 137, "Title"],
+Cell[1784, 49, 135, 1, 46, "Text"],
+Cell[1922, 52, 524, 9, 43, "Input"],
+Cell[2449, 63, 1398, 20, 44, "Input"],
+Cell[3850, 85, 267, 6, 43, "Input"],
+Cell[4120, 93, 260, 6, 43, "Input"],
+Cell[CellGroupData[{
+Cell[4405, 103, 157, 2, 95, "Section"],
+Cell[4565, 107, 482, 8, 76, "Text"],
+Cell[5050, 117, 144, 2, 43, "Input"],
+Cell[5197, 121, 152, 3, 46, "Text"],
+Cell[5352, 126, 99, 1, 43, "Input"],
+Cell[CellGroupData[{
+Cell[5476, 131, 105, 1, 52, "Subsubsection"],
+Cell[5584, 134, 219, 4, 46, "Text"],
+Cell[5806, 140, 98, 1, 43, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5941, 146, 154, 2, 52, "Subsubsection"],
+Cell[6098, 150, 427, 8, 46, "Text"],
+Cell[6528, 160, 245, 3, 43, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6810, 168, 158, 2, 52, "Subsubsection"],
+Cell[6971, 172, 272, 5, 46, "Text"],
+Cell[7246, 179, 148, 2, 43, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7431, 186, 155, 2, 52, "Subsubsection"],
+Cell[7589, 190, 271, 6, 46, "Text"],
+Cell[7863, 198, 150, 2, 43, "Input"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[8062, 206, 110, 1, 72, "Section"],
+Cell[8175, 209, 199, 4, 43, "Input"],
+Cell[CellGroupData[{
+Cell[8399, 217, 110, 1, 65, "Subsection"],
+Cell[8512, 220, 134, 1, 46, "Text"],
+Cell[8649, 223, 241, 4, 43, "Input"],
+Cell[8893, 229, 157, 3, 46, "Text"],
+Cell[9053, 234, 257, 5, 43, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9347, 244, 114, 1, 65, "Subsection"],
+Cell[9464, 247, 230, 4, 76, "Text"],
+Cell[9697, 253, 340, 5, 43, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10074, 263, 113, 1, 65, "Subsection"],
+Cell[10190, 266, 181, 4, 46, "Text"],
+Cell[10374, 272, 270, 5, 43, "Input"],
+Cell[10647, 279, 173, 4, 46, "Text"],
+Cell[10823, 285, 216, 4, 43, "Input"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[11088, 295, 116, 1, 72, "Section"],
+Cell[11207, 298, 221, 5, 46, "Text"],
+Cell[11431, 305, 149, 3, 43, "Input"],
+Cell[CellGroupData[{
+Cell[11605, 312, 100, 1, 65, "Subsection"],
+Cell[11708, 315, 102, 1, 43, "Input"],
+Cell[11813, 318, 457, 10, 43, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12307, 333, 128, 2, 65, "Subsection"],
+Cell[12438, 337, 311, 6, 43, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12786, 348, 35, 0, 65, "Subsection"],
+Cell[12824, 350, 417, 7, 43, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13278, 362, 35, 0, 65, "Subsection"],
+Cell[13316, 364, 360, 8, 43, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13713, 377, 101, 1, 65, "Subsection"],
+Cell[13817, 380, 433, 9, 43, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14287, 394, 106, 1, 65, "Subsection"],
+Cell[14396, 397, 187, 4, 43, "Input"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[14632, 407, 185, 3, 72, "Section"],
+Cell[14820, 412, 205, 4, 46, "Text"],
+Cell[CellGroupData[{
+Cell[15050, 420, 103, 1, 65, "Subsection"],
+Cell[15156, 423, 233, 3, 46, "Text"],
+Cell[15392, 428, 810, 16, 94, "Input"],
+Cell[16205, 446, 124, 1, 46, "Text"],
+Cell[16332, 449, 714, 14, 119, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17083, 468, 103, 1, 65, "Subsection"],
+Cell[17189, 471, 233, 3, 46, "Text"],
+Cell[17425, 476, 533, 11, 94, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17995, 492, 155, 2, 65, "Subsection"],
+Cell[18153, 496, 123, 1, 46, "Text"],
+Cell[18279, 499, 504, 11, 94, "Input"],
+Cell[18786, 512, 90, 1, 43, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18913, 518, 206, 3, 65, "Subsection"],
+Cell[19122, 523, 172, 2, 46, "Text"],
+Cell[19297, 527, 555, 12, 94, "Input"],
+Cell[19855, 541, 90, 1, 43, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19982, 547, 248, 3, 65, "Subsection"],
+Cell[20233, 552, 217, 3, 46, "Text"],
+Cell[20453, 557, 81, 2, 43, "Input"],
+Cell[20537, 561, 420, 8, 43, "Input"],
+Cell[20960, 571, 92, 1, 43, "Input"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[21101, 578, 102, 1, 72, "Section"],
+Cell[21206, 581, 199, 5, 43, "Input"],
+Cell[21408, 588, 149, 3, 43, "Input"],
+Cell[21560, 593, 1343, 33, 119, "Input"],
+Cell[22906, 628, 1205, 28, 119, "Input"],
+Cell[24114, 658, 187, 4, 43, "Input"],
+Cell[24304, 664, 122, 2, 43, "Input"],
+Cell[24429, 668, 950, 22, 169, "Input"],
+Cell[25382, 692, 1125, 27, 94, "Input"],
+Cell[26510, 721, 274, 6, 43, "Input"],
+Cell[26787, 729, 136, 3, 43, "Input"],
+Cell[26926, 734, 318, 7, 69, "Input"],
+Cell[27247, 743, 738, 20, 119, "Input"],
+Cell[27988, 765, 565, 12, 43, "Input"],
+Cell[28556, 779, 462, 9, 69, "Input"],
+Cell[29021, 790, 96, 1, 43, "Input"],
+Cell[29120, 793, 94, 1, 43, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
