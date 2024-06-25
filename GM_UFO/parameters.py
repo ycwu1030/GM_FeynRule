@@ -1,6 +1,6 @@
-# This file was automatically created by FeynRules 2.3.32
-# Mathematica version: 10.4.1 for Mac OS X x86 (64-bit) (April 17, 2016)
-# Date: Thu 13 Sep 2018 14:16:13
+# This file was automatically created by FeynRules 2.3.49
+# Mathematica version: 13.1.0 for Mac OS X ARM (64-bit) (June 16, 2022)
+# Date: Tue 25 Jun 2024 22:21:49
 
 
 
@@ -409,13 +409,13 @@ MZ = Parameter(name = 'MZ',
                lhablock = 'MASS',
                lhacode = [ 23 ])
 
-Mh = Parameter(name = 'Mh',
-               nature = 'external',
-               type = 'real',
-               value = 125,
-               texname = '\\text{Mh}',
-               lhablock = 'MASS',
-               lhacode = [ 25 ])
+MHL = Parameter(name = 'MHL',
+                nature = 'external',
+                type = 'real',
+                value = 125,
+                texname = '\\text{MHL}',
+                lhablock = 'MASS',
+                lhacode = [ 25 ])
 
 WT = Parameter(name = 'WT',
                nature = 'external',
@@ -441,21 +441,21 @@ WW = Parameter(name = 'WW',
                lhablock = 'DECAY',
                lhacode = [ 24 ])
 
-Wh = Parameter(name = 'Wh',
-               nature = 'external',
-               type = 'real',
-               value = 0.00575308848,
-               texname = '\\text{Wh}',
-               lhablock = 'DECAY',
-               lhacode = [ 25 ])
+WHL = Parameter(name = 'WHL',
+                nature = 'external',
+                type = 'real',
+                value = 0.00575308848,
+                texname = '\\text{WHL}',
+                lhablock = 'DECAY',
+                lhacode = [ 25 ])
 
-WH = Parameter(name = 'WH',
-               nature = 'external',
-               type = 'real',
-               value = 1,
-               texname = '\\text{WH}',
-               lhablock = 'DECAY',
-               lhacode = [ 252 ])
+WHH = Parameter(name = 'WHH',
+                nature = 'external',
+                type = 'real',
+                value = 1,
+                texname = '\\text{WHH}',
+                lhablock = 'DECAY',
+                lhacode = [ 252 ])
 
 WH3p = Parameter(name = 'WH3p',
                  nature = 'external',
@@ -644,7 +644,7 @@ MH5 = Parameter(name = 'MH5',
 mu3sq = Parameter(name = 'mu3sq',
                   nature = 'internal',
                   type = 'real',
-                  value = '6*M2coeff*vchi - 4*(lam3 + 3*lam4)*vchi**2 - (2*lam2 - lam5)*vphi**2 + (M1coeff*vphi**2)/(4.*vchi)',
+                  value = '6*M2coeff*vchi - 4*(lam3 + 3*lam4)*vchi**2 + (-2*lam2 + lam5)*vphi**2 + (M1coeff*vphi**2)/(4.*vchi)',
                   texname = '\\text{mu3sq}')
 
 sw = Parameter(name = 'sw',
@@ -722,7 +722,7 @@ gw = Parameter(name = 'gw',
 lam1 = Parameter(name = 'lam1',
                  nature = 'internal',
                  type = 'real',
-                 value = '(Mh**2 + Mat12sq**2/(Mat22sq - Mh**2))/(8.*vphi**2)',
+                 value = '(MHL**2 + Mat12sq**2/(Mat22sq - MHL**2))/(8.*vphi**2)',
                  texname = '\\lambda _1')
 
 Mat11sq = Parameter(name = 'Mat11sq',
@@ -737,16 +737,16 @@ mu2sq = Parameter(name = 'mu2sq',
                   value = '(3*M1coeff*vchi)/2. - 3*(2*lam2 - lam5)*vchi**2 - 4*lam1*vphi**2',
                   texname = '\\text{mu2sq}')
 
-MH = Parameter(name = 'MH',
-               nature = 'internal',
-               type = 'real',
-               value = 'cmath.sqrt(Mat11sq + Mat22sq - Mh**2)',
-               texname = 'M_H')
+MHH = Parameter(name = 'MHH',
+                nature = 'internal',
+                type = 'real',
+                value = 'cmath.sqrt(Mat11sq + Mat22sq - MHL**2)',
+                texname = 'M_{\\text{HH}}')
 
 sa = Parameter(name = 'sa',
                nature = 'internal',
                type = 'real',
-               value = 'cmath.sin(0.5*cmath.asin((2*Mat12sq)/(-Mh**2 + MH**2)))',
+               value = 'cmath.sin(0.5*cmath.asin((2*Mat12sq)/(MHH**2 - MHL**2)))',
                texname = 's_{\\alpha }')
 
 ca = Parameter(name = 'ca',
