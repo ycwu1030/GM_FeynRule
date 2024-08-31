@@ -1,0 +1,552 @@
+GM_Z2
+ Constraints
+  Name         |> Expression                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               <|
+%*slhaFound    |1+access("vars1.lha", 0)                                                                                       %Check whether LHA file is present.
+%*rdSLHA       |if(slhaFound,slhaRead("vars1.lha", 0),-1)                                                                      %Read LHA file.
+%cabi          |if(slhaFound,if(slhaValExists("CKMBLOCK",1,1),slhaVal("CKMBLOCK",0,1,1),cabiDef),cabiDef)                      %Cabibbo angle                                     
+%IxH5PWGA      |if(slhaFound,if(slhaValExists("IMxCHARGEDFORMFACTORS",1,1),slhaVal("IMxCHARGEDFORMFACTORS",0,1,1),IxH5PWGADef),IxH5PWGADef)           %Scalar Form Factor for H5WGa effective vertex     
+%IxH5PWGATILDE |if(slhaFound,if(slhaValExists("IMxCHARGEDFORMFACTORS",1,2),slhaVal("IMxCHARGEDFORMFACTORS",0,1,2),IxH5PWGATILDEDef),IxH5PWGATILDEDef)           %Scalar Form Factor for H5WGa effective vertex, For
+%IxH3PWGA      |if(slhaFound,if(slhaValExists("IMxCHARGEDFORMFACTORS",1,3),slhaVal("IMxCHARGEDFORMFACTORS",0,1,3),IxH3PWGADef),IxH3PWGADef)                     %Scalar Form Factor for H3WGa effective vertex     
+%IxH3PWGATILDE |if(slhaFound,if(slhaValExists("IMxCHARGEDFORMFACTORS",1,4),slhaVal("IMxCHARGEDFORMFACTORS",0,1,4),IxH3PWGATILDEDef),IxH3PWGATILDEDef)           %Scalar Form Factor for H3WGaTilde effective vertex
+%H5NGAGA       |if(slhaFound,if(slhaValExists("NEUTRALFORMFACTORS",1,1),slhaVal("NEUTRALFORMFACTORS",0,1,1),H5NGAGADef),H5NGAGADef)                             %Scalar Form Factor for H5NGAGA effective vertex   
+%H5NZGA        |if(slhaFound,if(slhaValExists("NEUTRALFORMFACTORS",1,2),slhaVal("NEUTRALFORMFACTORS",0,1,2),H5NZGADef),H5NZGADef)                               %Scalar Form Factor for H5NZGA effective vertex    
+%H3NGAGA       |if(slhaFound,if(slhaValExists("NEUTRALFORMFACTORS",1,3),slhaVal("NEUTRALFORMFACTORS",0,1,3),H3NGAGADef),H3NGAGADef)                             %Scalar Form Factor for H3NGAGA effective vertex   
+%H3NZGA        |if(slhaFound,if(slhaValExists("NEUTRALFORMFACTORS",1,4),slhaVal("NEUTRALFORMFACTORS",0,1,4),H3NZGADef),H3NZGADef)                               %Scalar Form Factor for H3NZGA effective vertex    
+%H3NGG         |if(slhaFound,if(slhaValExists("NEUTRALFORMFACTORS",1,5),slhaVal("NEUTRALFORMFACTORS",0,1,5),H3NGGDef),H3NGGDef)                                 %Scalar Form Factor for H3NGG effective vertex     
+%HHGAGA        |if(slhaFound,if(slhaValExists("NEUTRALFORMFACTORS",1,6),slhaVal("NEUTRALFORMFACTORS",0,1,6),HHGAGADef),HHGAGADef)                               %Scalar Form Factor for HHGAGA effective vertex    
+%HHZGA         |if(slhaFound,if(slhaValExists("NEUTRALFORMFACTORS",1,7),slhaVal("NEUTRALFORMFACTORS",0,1,7),HHZGADef),HHZGADef)                                 %Scalar Form Factor for HHZGA effective vertex     
+%HHGG          |if(slhaFound,if(slhaValExists("NEUTRALFORMFACTORS",1,8),slhaVal("NEUTRALFORMFACTORS",0,1,8),HHGGDef),HHGGDef)                                   %Scalar Form Factor for HHGG effective vertex      
+%HLGAGA        |if(slhaFound,if(slhaValExists("NEUTRALFORMFACTORS",1,9),slhaVal("NEUTRALFORMFACTORS",0,1,9),HLGAGADef),HLGAGADef)                               %Scalar Form Factor for HLGAGA effective vertex    
+%HLZGA         |if(slhaFound,if(slhaValExists("NEUTRALFORMFACTORS",1,10),slhaVal("NEUTRALFORMFACTORS",0,1,10),HLZGADef),HLZGADef)                               %Scalar Form Factor for HLZGA effective vertex     
+%HLGG          |if(slhaFound,if(slhaValExists("NEUTRALFORMFACTORS",1,11),slhaVal("NEUTRALFORMFACTORS",0,1,11),HLGGDef),HLGGDef)                                 %Scalar Form Factor for HLGG effective vertex      
+%lam2          |if(slhaFound,if(slhaValExists("POTENTIALPARAM",1,1),slhaVal("POTENTIALPARAM",0,1,1),lam2Def),lam2Def)                                           %Ext. Scalar Potential                             
+%lam3          |if(slhaFound,if(slhaValExists("POTENTIALPARAM",1,2),slhaVal("POTENTIALPARAM",0,1,2),lam3Def),lam3Def)                                           %Ext. Scalar Potential                             
+%lam4          |if(slhaFound,if(slhaValExists("POTENTIALPARAM",1,3),slhaVal("POTENTIALPARAM",0,1,3),lam4Def),lam4Def)                                           %Ext. Scalar Potential                             
+%RxH5PWGA      |if(slhaFound,if(slhaValExists("RExCHARGEDFORMFACTORS",1,1),slhaVal("RExCHARGEDFORMFACTORS",0,1,1),RxH5PWGADef),RxH5PWGADef)                     %Scalar Form Factor for H5WGa effective vertex     
+%RxH5PWGATILDE |if(slhaFound,if(slhaValExists("RExCHARGEDFORMFACTORS",1,2),slhaVal("RExCHARGEDFORMFACTORS",0,1,2),RxH5PWGATILDEDef),RxH5PWGATILDEDef)           %Scalar Form Factor for H5WGa effective vertex, For
+%RxH3PWGA      |if(slhaFound,if(slhaValExists("RExCHARGEDFORMFACTORS",1,3),slhaVal("RExCHARGEDFORMFACTORS",0,1,3),RxH3PWGADef),RxH3PWGADef)                     %Scalar Form Factor for H3WGa effective vertex     
+%RxH3PWGATILDE |if(slhaFound,if(slhaValExists("RExCHARGEDFORMFACTORS",1,4),slhaVal("RExCHARGEDFORMFACTORS",0,1,4),RxH3PWGATILDEDef),RxH3PWGATILDEDef)           %Scalar Form Factor for H3WGaTilde effective vertex
+%aEWM1         |if(slhaFound,if(slhaValExists("SMINPUTS",1,1),slhaVal("SMINPUTS",0,1,1),aEWM1Def),aEWM1Def)                                                     %Inverse of the electroweak coupling constant      
+%Gf            |if(slhaFound,if(slhaValExists("SMINPUTS",1,2),slhaVal("SMINPUTS",0,1,2),GfDef),GfDef)                                                           %Fermi constant                                    
+%aS            |if(slhaFound,if(slhaValExists("SMINPUTS",1,3),slhaVal("SMINPUTS",0,1,3),aSDef),aSDef)                                                           %Strong coupling constant at the Z pole.           
+%ymdo          |if(slhaFound,if(slhaValExists("YUKAWA",1,1),slhaVal("YUKAWA",0,1,1),ymdoDef),ymdoDef)                                                           %Down Yukawa mass                                  
+%ymup          |if(slhaFound,if(slhaValExists("YUKAWA",1,2),slhaVal("YUKAWA",0,1,2),ymupDef),ymupDef)                                                           %Up Yukawa mass                                    
+%yms           |if(slhaFound,if(slhaValExists("YUKAWA",1,3),slhaVal("YUKAWA",0,1,3),ymsDef),ymsDef)                                                             %Strange Yukawa mass                               
+%ymc           |if(slhaFound,if(slhaValExists("YUKAWA",1,4),slhaVal("YUKAWA",0,1,4),ymcDef),ymcDef)                                                             %Charm Yukawa mass                                 
+%ymb           |if(slhaFound,if(slhaValExists("YUKAWA",1,5),slhaVal("YUKAWA",0,1,5),ymbDef),ymbDef)                                                             %Bottom Yukawa mass                                
+%ymt           |if(slhaFound,if(slhaValExists("YUKAWA",1,6),slhaVal("YUKAWA",0,1,6),ymtDef),ymtDef)                                                             %Top Yukawa mass                                   
+%yme           |if(slhaFound,if(slhaValExists("YUKAWA",1,11),slhaVal("YUKAWA",0,1,11),ymeDef),ymeDef)                                                           %Electron Yukawa mass                              
+%ymm           |if(slhaFound,if(slhaValExists("YUKAWA",1,13),slhaVal("YUKAWA",0,1,13),ymmDef),ymmDef)                                                           %Muon Yukawa mass                                  
+%ymtau         |if(slhaFound,if(slhaValExists("YUKAWA",1,15),slhaVal("YUKAWA",0,1,15),ymtauDef),ymtauDef)                                                       %Tau Yukawa mass                                   
+%Me            |if(slhaFound,if(slhaValExists("MASS",1,11),slhaVal("MASS",0,1,11),MeDef),MeDef)                                                                 %Mass of e.                                        
+%MM            |if(slhaFound,if(slhaValExists("MASS",1,13),slhaVal("MASS",0,1,13),MMDef),MMDef)                                                                 %Mass of m.                                        
+%MTA           |if(slhaFound,if(slhaValExists("MASS",1,15),slhaVal("MASS",0,1,15),MTADef),MTADef)                                                               %Mass of tt.                                       
+%MU            |if(slhaFound,if(slhaValExists("MASS",1,2),slhaVal("MASS",0,1,2),MUDef),MUDef)                                                                   %Mass of u.                                        
+%MC            |if(slhaFound,if(slhaValExists("MASS",1,4),slhaVal("MASS",0,1,4),MCDef),MCDef)                                                                   %Mass of c.                                        
+%MT            |if(slhaFound,if(slhaValExists("MASS",1,6),slhaVal("MASS",0,1,6),MTDef),MTDef)                                                                   %Mass of t.                                        
+%MD            |if(slhaFound,if(slhaValExists("MASS",1,1),slhaVal("MASS",0,1,1),MDDef),MDDef)                                                                   %Mass of d.                                        
+%MS            |if(slhaFound,if(slhaValExists("MASS",1,3),slhaVal("MASS",0,1,3),MSDef),MSDef)                                                                   %Mass of s.                                        
+%MB            |if(slhaFound,if(slhaValExists("MASS",1,5),slhaVal("MASS",0,1,5),MBDef),MBDef)                                                                   %Mass of b.                                        
+%MZ            |if(slhaFound,if(slhaValExists("MASS",1,23),slhaVal("MASS",0,1,23),MZDef),MZDef)                                                                 %Mass of G0.                                       
+%MHL           |if(slhaFound,if(slhaValExists("MASS",1,25),slhaVal("MASS",0,1,25),MHLDef),MHLDef)                                                               %Mass of HL.                                       
+%MHH           |if(slhaFound,if(slhaValExists("MASS",1,252),slhaVal("MASS",0,1,252),MHHDef),MHHDef)                                                             %Mass of HH.                                       
+%MH5           |if(slhaFound,if(slhaValExists("MASS",1,255),slhaVal("MASS",0,1,255),MH5Def),MH5Def)                                                             %Mass of H5z.                                      
+%MH5           |if(slhaFound,if(slhaValExists("MASS",1,256),slhaVal("MASS",0,1,256),MH5Def),MH5Def)                                                             %Mass of H5z.                                      
+%MH5           |if(slhaFound,if(slhaValExists("MASS",1,257),slhaVal("MASS",0,1,257),MH5Def),MH5Def)                                                             %Mass of H5z.                                      
+%WT            |if(slhaFound,if(1+slhaDecayExists(6),slhaWidth(6),WTDef),WTDef)                                                                                 %Width of t.                                       
+%WZ            |if(slhaFound,if(1+slhaDecayExists(23),slhaWidth(23),WZDef),WZDef)                                                                               %Width of Z.                                       
+%WW            |if(slhaFound,if(1+slhaDecayExists(24),slhaWidth(24),WWDef),WWDef)                                                                               %Width of W.                                       
+%WHL           |if(slhaFound,if(1+slhaDecayExists(25),slhaWidth(25),WHLDef),WHLDef)                                                                             %Width of HL.                                      
+%WHH           |if(slhaFound,if(1+slhaDecayExists(252),slhaWidth(252),WHHDef),WHHDef)                                                                           %Width of HH.                                      
+%WH3p          |if(slhaFound,if(1+slhaDecayExists(253),slhaWidth(253),WH3pDef),WH3pDef)                                                                         %Width of H3p.                                     
+%WH3z          |if(slhaFound,if(1+slhaDecayExists(254),slhaWidth(254),WH3zDef),WH3zDef)                                                                         %Width of H3z.                                     
+%WH5pp         |if(slhaFound,if(1+slhaDecayExists(255),slhaWidth(255),WH5ppDef),WH5ppDef)                                                                       %Width of H5pp.                                    
+%WH5p          |if(slhaFound,if(1+slhaDecayExists(256),slhaWidth(256),WH5pDef),WH5pDef)                                                                         %Width of H5p.                                     
+%WH5z          |if(slhaFound,if(1+slhaDecayExists(257),slhaWidth(257),WH5zDef),WH5zDef)                                                                         %Width of H5z.                                     
+aEW            |pow(aEWM1,-1)                                                                                                                                   % Electroweak coupling contant                      
+MW             |pow(pow(MZ,2)/2.+pow(-(aEW*Pi*pow(2,-0.5)*pow(Gf,-1)*pow(MZ,2))+pow(MZ,4)/4.,0.5),0.5)                                                          % W mass                                            
+sw2            |1-pow(MW,2)*pow(MZ,-2)                                                                                                                          % Squared Sin of the Weinberg angle                 
+EE             |2*pow(aEW,0.5)*pow(Pi,0.5)                                                                                                                      % Electric coupling constant                        
+cw             |pow(1-sw2,0.5)                                                                                                                                  % Cos of the Weinberg angle                         
+sw             |pow(sw2,0.5)                                                                                                                                    % Sin of the Weinberg angle                         
+gw             |EE*pow(sw,-1)                                                                                                                                   % Weak coupling constant                            
+g1             |EE*pow(cw,-1)                                                                                                                                   % U(1)Y coupling constant                           
+v              |pow(2,-0.25)*pow(Gf,-0.5)                                                                                                                       % SM Higgs VEV                                      
+vphi           |pow(2,-0.25)*pow(Gf,-0.5)                                                                                                                       % Doublet vev                                       
+ye             |yme*pow(2,0.5)*pow(vphi,-1)                                                                                                                     % Lepton Yukawa coupling ( ye )                     
+ym             |ymm*pow(2,0.5)*pow(vphi,-1)                                                                                                                     % Lepton Yukawa coupling ( ym )                     
+ytau           |ymtau*pow(2,0.5)*pow(vphi,-1)                                                                                                                   % Lepton Yukawa coupling ( ytau )                   
+yup            |ymup*pow(2,0.5)*pow(vphi,-1)                                                                                                                    % U-quark Yukawa coupling ( yup )                   
+yc             |ymc*pow(2,0.5)*pow(vphi,-1)                                                                                                                     % U-quark Yukawa coupling ( yc )                    
+yt             |ymt*pow(2,0.5)*pow(vphi,-1)                                                                                                                     % U-quark Yukawa coupling ( yt )                    
+ydo            |ymdo*pow(2,0.5)*pow(vphi,-1)                                                                                                                    % D-quark Yukawa coupling ( ydo )                   
+ys             |yms*pow(2,0.5)*pow(vphi,-1)                                                                                                                     % D-quark Yukawa coupling ( ys )                    
+yb             |ymb*pow(2,0.5)*pow(vphi,-1)                                                                                                                     % D-quark Yukawa coupling ( yb )                    
+CKM1x1         |cos(cabi)                                                                                                                                       % CKM-Matrix ( CKM1x1 )                             
+CKM1x2         |sin(cabi)                                                                                                                                       % CKM-Matrix ( CKM1x2 )                             
+CKM1x3         |0                                                                                                                                               % CKM-Matrix ( CKM1x3 )                             
+CKM2x1         |-sin(cabi)                                                                                                                                      % CKM-Matrix ( CKM2x1 )                             
+CKM2x2         |cos(cabi)                                                                                                                                       % CKM-Matrix ( CKM2x2 )                             
+CKM2x3         |0                                                                                                                                               % CKM-Matrix ( CKM2x3 )                             
+CKM3x1         |0                                                                                                                                               % CKM-Matrix ( CKM3x1 )                             
+CKM3x2         |0                                                                                                                                               % CKM-Matrix ( CKM3x2 )                             
+CKM3x3         |1                                                                                                                                               % CKM-Matrix ( CKM3x3 )                             
+MH3            |pow(3,-0.5)*pow(pow(MH5,2)+2*pow(MHH,2),0.5)                                                                                                    % SU(2)_C triplet mass                              
+lam1           |(pow(MHL,2)*pow(vphi,-2))/8.                                                                                                                    % Ext. Scalar Potential                             
+lam5           |(2*(pow(MH5,2)-pow(MHH,2))*pow(vphi,-2))/3.                                                                                                     % Ext. Scalar Potential                             
+mu2sq          |-0.5*pow(MHL,2)                                                                                                                                 % Ext. Scalar Potential (parameter \mu_2^2)         
+mu3sq          |(2*pow(MH5,2)+pow(MHH,2))/3.-2*lam2*pow(vphi,2)                                                                                                 % Ext. Scalar Potential (parameter \mu_3^2)         
+x1x0           |-24*lam1                                                                                                                                        % Z.f  Z.f  Z.f  Z.f   coupling.
+x2x0           |-8*lam1                                                                                                                                         % Z.f  Z.f  W+.f W-.f  coupling.
+x3x0           |-16*lam1                                                                                                                                        % W+.f W+.f W-.f W-.f  coupling.
+x4x0           |-8*lam1                                                                                                                                         % Z.f  Z.f  HL   HL    coupling.
+x5x0           |-8*lam1                                                                                                                                         % W+.f W-.f HL   HL    coupling.
+x6x0           |-24*lam1                                                                                                                                        % HL   HL   HL   HL    coupling.
+x7x0           |-4*lam2-lam5                                                                                                                                    % Z.f  Z.f  ~H3p ~H3p~ coupling.
+x8x0           |-4*lam2                                                                                                                                         % W+.f W-.f ~H3p ~H3p~ coupling.
+x9x0           |-4*lam2+lam5                                                                                                                                    % Z.f  Z.f  ~H3z ~H3z  coupling.
+x10x0          |-4*lam2-lam5                                                                                                                                    % W+.f W-.f ~H3z ~H3z  coupling.
+x11x0          |-4*lam2+lam5                                                                                                                                    % Z.f  Z.f  ~H5p ~H5p~ coupling.
+x12x0          |-4*lam2                                                                                                                                         % W+.f W-.f ~H5p ~H5p~ coupling.
+x13x0          |-4*lam2-lam5                                                                                                                                    % Z.f  Z.f  ~H5pp~H5pp coupling.
+x14x0          |-4*lam2+lam5                                                                                                                                    % W+.f W-.f ~H5pp~H5pp coupling.
+x15x0          |-4*lam2+(5*lam5)/3.                                                                                                                             % Z.f  Z.f  ~H5z ~H5z  coupling.
+x16x0          |-4*lam2-lam5/3.                                                                                                                                 % W+.f W-.f ~H5z ~H5z  coupling.
+x17x0          |(-2*(6*lam2+lam5))/3.                                                                                                                           % Z.f  Z.f  ~HH  ~HH   coupling.
+x18x0          |(-2*(6*lam2+lam5))/3.                                                                                                                           % W+.f W-.f ~HH  ~HH   coupling.
+x19x0          |-4*lam2+lam5                                                                                                                                    % ~H3p ~H3p~HL   HL    coupling.
+x20x0          |-4*lam2+lam5                                                                                                                                    % ~H3z ~H3z HL   HL    coupling.
+x21x0          |-4*lam2-lam5                                                                                                                                    % ~H5p ~H5p~HL   HL    coupling.
+x22x0          |-4*lam2-lam5                                                                                                                                    % ~H5pp~H5ppHL   HL    coupling.
+x23x0          |-4*lam2-lam5                                                                                                                                    % ~H5z ~H5z HL   HL    coupling.
+x24x0          |-4*lam2+2*lam5                                                                                                                                  % ~HH  ~HH  HL   HL    coupling.
+x25x0          |-8*(lam3+2*lam4)                                                                                                                                % ~H3p ~H3p ~H3p~~H3p~ coupling.
+x26x0          |-4*(lam3+2*lam4)                                                                                                                                % ~H3p ~H3p~~H3z ~H3z  coupling.
+x27x0          |-12*(lam3+2*lam4)                                                                                                                               % ~H3z ~H3z ~H3z ~H3z  coupling.
+x28x0          |-8*lam3                                                                                                                                         % ~H3p~~H3p~~H5p ~H5p  coupling.
+x29x0          |-8*(lam3+lam4)                                                                                                                                  % ~H3p ~H3p~~H5p ~H5p~ coupling.
+x30x0          |-4*(lam3+2*lam4)                                                                                                                                % ~H3z ~H3z ~H5p ~H5p~ coupling.
+x31x0          |-8*lam3                                                                                                                                         % ~H3p ~H3p ~H5p~~H5p~ coupling.
+x32x0          |-8*(lam3+2*lam4)                                                                                                                                % ~H5p ~H5p ~H5p~~H5p~ coupling.
+x33x0          |4*lam3*pow(2,0.5)                                                                                                                               % ~H3p~~H3z ~H5p~~H5pp coupling.
+x34x0          |-4*lam3*pow(2,0.5)                                                                                                                              % ~H3p ~H3z ~H5p ~H5pp coupling.
+x35x0          |-4*(lam3+2*lam4)                                                                                                                                % ~H3p ~H3p~~H5pp~H5pp coupling.
+x36x0          |-4*(3*lam3+2*lam4)                                                                                                                              % ~H3z ~H3z ~H5pp~H5pp coupling.
+x37x0          |-4*(lam3+2*lam4)                                                                                                                                % ~H5p ~H5p~~H5pp~H5pp coupling.
+x38x0          |-8*(lam3+2*lam4)                                                                                                                                % ~H5pp~H5pp~H5pp~H5pp coupling.
+x39x0          |-4*lam3*pow(3,-0.5)                                                                                                                             % ~H3p~~H3z ~H5p ~H5z  coupling.
+x40x0          |4*lam3*pow(3,-0.5)                                                                                                                              % ~H3p ~H3z ~H5p~~H5z  coupling.
+x41x0          |-8*lam3*pow(0.6666666666666666,0.5)                                                                                                             % ~H3p~~H3p~~H5pp~H5z  coupling.
+x42x0          |-8*lam3*pow(0.6666666666666666,0.5)                                                                                                             % ~H3p ~H3p ~H5pp~H5z  coupling.
+x43x0          |(-4*(7*lam3+6*lam4))/3.                                                                                                                         % ~H3p ~H3p~~H5z ~H5z  coupling.
+x44x0          |(-4*(lam3+6*lam4))/3.                                                                                                                           % ~H3z ~H3z ~H5z ~H5z  coupling.
+x45x0          |-4*(lam3+2*lam4)                                                                                                                                % ~H5p ~H5p~~H5z ~H5z  coupling.
+x46x0          |-4*(lam3+2*lam4)                                                                                                                                % ~H5pp~H5pp~H5z ~H5z  coupling.
+x47x0          |-12*(lam3+2*lam4)                                                                                                                               % ~H5z ~H5z ~H5z ~H5z  coupling.
+x48x0          |-2*lam3*pow(0.6666666666666666,0.5)                                                                                                             % ~H3p~~H3z ~H5p ~HH   coupling.
+x49x0          |2*lam3*pow(0.6666666666666666,0.5)                                                                                                              % ~H3p ~H3z ~H5p~~HH   coupling.
+x50x0          |4*lam3*pow(3,-0.5)                                                                                                                              % ~H3p~~H3p~~H5pp~HH   coupling.
+x51x0          |4*lam3*pow(3,0.5)                                                                                                                               % ~H5p~~H5p~~H5pp~HH   coupling.
+x52x0          |4*lam3*pow(3,-0.5)                                                                                                                              % ~H3p ~H3p ~H5pp~HH   coupling.
+x53x0          |4*lam3*pow(3,0.5)                                                                                                                               % ~H5p ~H5p ~H5pp~HH   coupling.
+x54x0          |(-2*lam3*pow(2,0.5))/3.                                                                                                                         % ~H3p ~H3p~~H5z ~HH   coupling.
+x55x0          |(4*lam3*pow(2,0.5))/3.                                                                                                                          % ~H3z ~H3z ~H5z ~HH   coupling.
+x56x0          |-2*lam3*pow(2,0.5)                                                                                                                              % ~H5p ~H5p~~H5z ~HH   coupling.
+x57x0          |4*lam3*pow(2,0.5)                                                                                                                               % ~H5pp~H5pp~H5z ~HH   coupling.
+x58x0          |-4*lam3*pow(2,0.5)                                                                                                                              % ~H5z ~H5z ~H5z ~HH   coupling.
+x59x0          |(-8*(lam3+3*lam4))/3.                                                                                                                           % ~H3p ~H3p~~HH  ~HH   coupling.
+x60x0          |(-8*(lam3+3*lam4))/3.                                                                                                                           % ~H3z ~H3z ~HH  ~HH   coupling.
+x61x0          |-8*(lam3+lam4)                                                                                                                                  % ~H5p ~H5p~~HH  ~HH   coupling.
+x62x0          |-8*(lam3+lam4)                                                                                                                                  % ~H5pp~H5pp~HH  ~HH   coupling.
+x63x0          |-8*(lam3+lam4)                                                                                                                                  % ~H5z ~H5z ~HH  ~HH   coupling.
+x64x0          |-8*(lam3+3*lam4)                                                                                                                                % ~HH  ~HH  ~HH  ~HH   coupling.
+x65x0          |2*lam5                                                                                                                                          % W-.f W-.f ~H3p ~H3p  coupling.
+x66x0          |2*lam5                                                                                                                                          % W+.f W+.f ~H3p~~H3p~ coupling.
+x67x0          |lam5                                                                                                                                            % Z.f  W-.f ~H3p ~H3z  coupling.
+x68x0          |lam5                                                                                                                                            % Z.f  W+.f ~H3p~~H3z  coupling.
+x69x0          |-2*lam5                                                                                                                                         % W-.f W-.f ~H5p ~H5p  coupling.
+x70x0          |-2*lam5                                                                                                                                         % W+.f W+.f ~H5p~~H5p~ coupling.
+x71x0          |lam5*pow(2,0.5)                                                                                                                                 % Z.f  W-.f ~H5p~~H5pp coupling.
+x72x0          |-(lam5*pow(2,0.5))                                                                                                                              % Z.f  W+.f ~H5p ~H5pp coupling.
+x73x0          |-(lam5*pow(3,-0.5))                                                                                                                             % Z.f  W-.f ~H5p ~H5z  coupling.
+x74x0          |lam5*pow(3,-0.5)                                                                                                                                % Z.f  W+.f ~H5p~~H5z  coupling.
+x75x0          |-2*lam5*pow(0.6666666666666666,0.5)                                                                                                             % W-.f W-.f ~H5pp~H5z  coupling.
+x76x0          |-2*lam5*pow(0.6666666666666666,0.5)                                                                                                             % W+.f W+.f ~H5pp~H5z  coupling.
+x77x0          |lam5*pow(0.6666666666666666,0.5)                                                                                                                % Z.f  W-.f ~H5p ~HH   coupling.
+x78x0          |-(lam5*pow(0.6666666666666666,0.5))                                                                                                             % Z.f  W+.f ~H5p~~HH   coupling.
+x79x0          |-2*lam5*pow(3,-0.5)                                                                                                                             % W-.f W-.f ~H5pp~HH   coupling.
+x80x0          |-2*lam5*pow(3,-0.5)                                                                                                                             % W+.f W+.f ~H5pp~HH   coupling.
+x81x0          |(-2*lam5*pow(2,0.5))/3.                                                                                                                         % Z.f  Z.f  ~H5z ~HH   coupling.
+x82x0          |(lam5*pow(2,0.5))/3.                                                                                                                            % W+.f W-.f ~H5z ~HH   coupling.
+x83x0          |-lam5                                                                                                                                           % Z.f  ~H3p~~H5p HL    coupling.
+x84x0          |-lam5                                                                                                                                           % W-.f ~H3z ~H5p HL    coupling.
+x85x0          |lam5                                                                                                                                            % Z.f  ~H3p ~H5p~HL    coupling.
+x86x0          |lam5                                                                                                                                            % W+.f ~H3z ~H5p~HL    coupling.
+x87x0          |lam5*pow(2,0.5)                                                                                                                                 % W-.f ~H3p~~H5ppHL    coupling.
+x88x0          |lam5*pow(2,0.5)                                                                                                                                 % W+.f ~H3p ~H5ppHL    coupling.
+x89x0          |-(lam5*pow(3,-0.5))                                                                                                                             % W-.f ~H3p ~H5z HL    coupling.
+x90x0          |-(lam5*pow(3,-0.5))                                                                                                                             % W+.f ~H3p~~H5z HL    coupling.
+x91x0          |2*lam5*pow(3,-0.5)                                                                                                                              % Z.f  ~H3z ~H5z HL    coupling.
+x92x0          |lam5*pow(0.6666666666666666,0.5)                                                                                                                % W-.f ~H3p ~HH  HL    coupling.
+x93x0          |lam5*pow(0.6666666666666666,0.5)                                                                                                                % W+.f ~H3p~~HH  HL    coupling.
+x94x0          |lam5*pow(0.6666666666666666,0.5)                                                                                                                % Z.f  ~H3z ~HH  HL    coupling.
+x95x0          |-8*lam1*vphi                                                                                                                                    % Z.f  Z.f  HL    coupling.
+x96x0          |-8*lam1*vphi                                                                                                                                    % W+.f W-.f HL    coupling.
+x97x0          |-24*lam1*vphi                                                                                                                                   % HL   HL   HL    coupling.
+x98x0          |(-4*lam2+lam5)*vphi                                                                                                                             % ~H3p ~H3p~HL    coupling.
+x99x0          |(-4*lam2+lam5)*vphi                                                                                                                             % ~H3z ~H3z HL    coupling.
+x100x0         |-((4*lam2+lam5)*vphi)                                                                                                                           % ~H5p ~H5p~HL    coupling.
+x101x0         |-((4*lam2+lam5)*vphi)                                                                                                                           % ~H5pp~H5ppHL    coupling.
+x102x0         |-((4*lam2+lam5)*vphi)                                                                                                                           % ~H5z ~H5z HL    coupling.
+x103x0         |2*(-2*lam2+lam5)*vphi                                                                                                                           % ~HH  ~HH  HL    coupling.
+x104x0         |-(lam5*vphi)                                                                                                                                    % Z.f  ~H3p~~H5p  coupling.
+x105x0         |-(lam5*vphi)                                                                                                                                    % W-.f ~H3z ~H5p  coupling.
+x106x0         |lam5*vphi                                                                                                                                       % Z.f  ~H3p ~H5p~ coupling.
+x107x0         |lam5*vphi                                                                                                                                       % W+.f ~H3z ~H5p~ coupling.
+x108x0         |lam5*vphi*pow(2,0.5)                                                                                                                            % W-.f ~H3p~~H5pp coupling.
+x109x0         |lam5*vphi*pow(2,0.5)                                                                                                                            % W+.f ~H3p ~H5pp coupling.
+x110x0         |-(lam5*vphi*pow(3,-0.5))                                                                                                                        % W-.f ~H3p ~H5z  coupling.
+x111x0         |-(lam5*vphi*pow(3,-0.5))                                                                                                                        % W+.f ~H3p~~H5z  coupling.
+x112x0         |2*lam5*vphi*pow(3,-0.5)                                                                                                                         % Z.f  ~H3z ~H5z  coupling.
+x113x0         |lam5*vphi*pow(0.6666666666666666,0.5)                                                                                                           % W-.f ~H3p ~HH   coupling.
+x114x0         |lam5*vphi*pow(0.6666666666666666,0.5)                                                                                                           % W+.f ~H3p~~HH   coupling.
+x115x0         |lam5*vphi*pow(0.6666666666666666,0.5)                                                                                                           % Z.f  ~H3z ~HH   coupling.
+x116x0         |2                                                                                                                                               % A    A    W+.f W-.f  coupling.
+x117x0         |2                                                                                                                                               % A    A    ~H3p ~H3p~ coupling.
+x118x0         |2                                                                                                                                               % A    A    ~H5p ~H5p~ coupling.
+x119x0         |8                                                                                                                                               % A    A    ~H5pp~H5pp coupling.
+x120x0         |-1                                                                                                                                              % A    W+.f W-.f  coupling.
+x121x0         |-1                                                                                                                                              % A    ~H3p ~H3p~ coupling.
+x122x0         |-1                                                                                                                                              % A    ~H5p ~H5p~ coupling.
+x123x0         |-2                                                                                                                                              % A    ~H5pp~H5pp coupling.
+x124x0         |-H5NGAGA                                                                                                                                        % A    A    ~H5z  coupling.
+x125x0         |-HHGAGA                                                                                                                                         % A    A    ~HH   coupling.
+x126x0         |-HLGAGA                                                                                                                                         % A    A    HL    coupling.
+x127x0         |-HHGG                                                                                                                                           % G    G    ~HH   coupling.
+x128x0         |-HLGG                                                                                                                                           % G    G    HL    coupling.
+x129x0         |1                                                                                                                                               % A    ~H3p~W+    coupling.
+x129x1         |IxH3PWGATILDE                                                                                                                                   
+x129x2         |RxH3PWGATILDE                                                                                                                                   
+x129x3         |RxH3PWGA                                                                                                                                        
+x129x4         |-RxH3PWGA                                                                                                                                       
+x129x5         |-IxH3PWGA                                                                                                                                       
+x129x6         |IxH3PWGA                                                                                                                                        
+x130x0         |1                                                                                                                                               % A    ~H5p~W+    coupling.
+x130x1         |IxH5PWGATILDE                                                                                                                                   
+x130x2         |RxH5PWGATILDE                                                                                                                                   
+x130x3         |RxH5PWGA                                                                                                                                        
+x130x4         |-RxH5PWGA                                                                                                                                       
+x130x5         |-IxH5PWGA                                                                                                                                       
+x130x6         |IxH5PWGA                                                                                                                                        
+x131x0         |-1                                                                                                                                              % A    ~H3p W-    coupling.
+x131x1         |-IxH3PWGATILDE                                                                                                                                  
+x131x2         |RxH3PWGATILDE                                                                                                                                   
+x131x3         |-RxH3PWGA                                                                                                                                       
+x131x4         |RxH3PWGA                                                                                                                                        
+x131x5         |-IxH3PWGA                                                                                                                                       
+x131x6         |IxH3PWGA                                                                                                                                        
+x132x0         |-1                                                                                                                                              % A    ~H5p W-    coupling.
+x132x1         |-IxH5PWGATILDE                                                                                                                                  
+x132x2         |RxH5PWGATILDE                                                                                                                                   
+x132x3         |-RxH5PWGA                                                                                                                                       
+x132x4         |RxH5PWGA                                                                                                                                        
+x132x5         |-IxH5PWGA                                                                                                                                       
+x132x6         |IxH5PWGA                                                                                                                                        
+x133x0         |-H5NZGA                                                                                                                                         % A    ~H5z Z     coupling.
+x134x0         |-HHZGA                                                                                                                                          % A    ~HH  Z     coupling.
+x135x0         |-HLZGA                                                                                                                                          % A    HL   Z     coupling.
+x136x0         |1                                                                                                                                               % A.C  W-.c W+    coupling.
+x137x0         |-1                                                                                                                                              % A.C  W+.c W-    coupling.
+x138x0         |-MW                                                                                                                                             % W+.C A.c  W-.f  coupling.
+x139x0         |1                                                                                                                                               % W+.C A.c  W-    coupling.
+x140x0         |(MW*pow(sw,-1))/2.                                                                                                                              % W+.C W-.c Z.f   coupling.
+x141x0         |-0.5*(MW*pow(sw,-1))                                                                                                                            % W+.C W-.c HL    coupling.
+x142x0         |-1                                                                                                                                              % W+.C W-.c A     coupling.
+x143x0         |-(cw*pow(sw,-1))                                                                                                                                % W+.C W-.c Z     coupling.
+x144x0         |(MW*sw*pow(cw,-1))/2.-(cw*MW*pow(sw,-1))/2.                                                                                                     % W+.C Z.c  W-.f  coupling.
+x145x0         |cw*pow(sw,-1)                                                                                                                                   % W+.C Z.c  W-    coupling.
+x146x0         |-MW                                                                                                                                             % W-.C A.c  W+.f  coupling.
+x147x0         |-1                                                                                                                                              % W-.C A.c  W+    coupling.
+x148x0         |-0.5*(MW*pow(sw,-1))                                                                                                                            % W-.C W+.c Z.f   coupling.
+x149x0         |-0.5*(MW*pow(sw,-1))                                                                                                                            % W-.C W+.c HL    coupling.
+x150x0         |1                                                                                                                                               % W-.C W+.c A     coupling.
+x151x0         |cw*pow(sw,-1)                                                                                                                                   % W-.C W+.c Z     coupling.
+x152x0         |(MW*sw*pow(cw,-1))/2.-(cw*MW*pow(sw,-1))/2.                                                                                                     % W-.C Z.c  W+.f  coupling.
+x153x0         |-(cw*pow(sw,-1))                                                                                                                                % W-.C Z.c  W+    coupling.
+x154x0         |(MZ*pow(sw,-1))/2.                                                                                                                              % Z.C  W-.c W+.f  coupling.
+x155x0         |cw*pow(sw,-1)                                                                                                                                   % Z.C  W-.c W+    coupling.
+x156x0         |(MZ*pow(sw,-1))/2.                                                                                                                              % Z.C  W+.c W-.f  coupling.
+x157x0         |-(cw*pow(sw,-1))                                                                                                                                % Z.C  W+.c W-    coupling.
+x158x0         |-0.5*(MZ*pow(cw,-1)*pow(sw,-1))                                                                                                                 % Z.C  Z.c  HL    coupling.
+x159x0         |H3NGAGA/2.                                                                                                                                      % A    A    ~H3z  coupling.
+x160x0         |H3NGG/2.                                                                                                                                        % G    G    ~H3z  coupling.
+x161x0         |H3NZGA                                                                                                                                          % A    ~H3z Z     coupling.
+x162x0         |1                                                                                                                                               % G.C  G.c  G     coupling.
+x163x0         |1                                                                                                                                               % G    G    G     coupling.
+x164x          |-pow(2,-0.5)                                                                                                                                    % G    G    G        coupling.
+x165x0         |1                                                                                                                                               % G    d~   d     coupling.
+x166x0         |1                                                                                                                                               % G    s~   s     coupling.
+x167x0         |1                                                                                                                                               % G    b~   b     coupling.
+x168x0         |1                                                                                                                                               % G    u~   u     coupling.
+x169x0         |1                                                                                                                                               % G    c~   c     coupling.
+x170x0         |1                                                                                                                                               % G    t~   t     coupling.
+x171x0         |pow(sw,-1)/2.                                                                                                                                   % A    Z.f  W-.f W+    coupling.
+x172x0         |pow(sw,-1)/2.                                                                                                                                   % A    ~H3p~~H3z W+    coupling.
+x173x0         |pow(sw,-1)/2.                                                                                                                                   % A    ~H3z ~H5p~W+    coupling.
+x174x0         |3*pow(2,-0.5)*pow(sw,-1)                                                                                                                        % A    ~H3p ~H5ppW+    coupling.
+x175x0         |3*pow(2,-0.5)*pow(sw,-1)                                                                                                                        % A    ~H5p ~H5ppW+    coupling.
+x176x0         |(pow(3,-0.5)*pow(sw,-1))/2.                                                                                                                     % A    ~H3p~~H5z W+    coupling.
+x177x0         |-0.5*(pow(3,0.5)*pow(sw,-1))                                                                                                                    % A    ~H5p~~H5z W+    coupling.
+x178x0         |pow(0.6666666666666666,0.5)*pow(sw,-1)                                                                                                          % A    ~H3p~~HH  W+    coupling.
+x179x0         |pow(sw,-1)/2.                                                                                                                                   % A    W-.f HL   W+    coupling.
+x180x0         |(vphi*pow(sw,-1))/2.                                                                                                                            % A    W-.f W+    coupling.
+x181x0         |-0.5*pow(sw,-1)                                                                                                                                 % Z.f  W-.f W+    coupling.
+x182x0         |pow(sw,-1)/2.                                                                                                                                   % W-.f HL   W+    coupling.
+x183x0         |-(pow(2,-0.5)*pow(sw,-1))                                                                                                                       % ~H3p ~H5ppW+    coupling.
+x184x0         |pow(sw,-1)/2.                                                                                                                                   % ~H3p~~H3z W+    coupling.
+x185x0         |(pow(3,-0.5)*pow(sw,-1))/2.                                                                                                                     % ~H3p~~H5z W+    coupling.
+x186x0         |pow(0.6666666666666666,0.5)*pow(sw,-1)                                                                                                          % ~H3p~~HH  W+    coupling.
+x187x0         |-0.5*pow(sw,-1)                                                                                                                                 % ~H3z ~H5p~W+    coupling.
+x188x0         |-(pow(2,-0.5)*pow(sw,-1))                                                                                                                       % ~H5p ~H5ppW+    coupling.
+x189x0         |-0.5*(pow(3,0.5)*pow(sw,-1))                                                                                                                    % ~H5p~~H5z W+    coupling.
+x190x0         |-pow(sw,-2)                                                                                                                                     % ~H3p~~H3p~W+   W+    coupling.
+x191x0         |pow(sw,-2)                                                                                                                                      % ~H3p~~H5p~W+   W+    coupling.
+x192x0         |-pow(sw,-2)                                                                                                                                     % ~H5p~~H5p~W+   W+    coupling.
+x193x0         |pow(2,0.5)*pow(sw,-2)                                                                                                                           % ~H3z ~H5ppW+   W+    coupling.
+x194x0         |-(pow(0.6666666666666666,0.5)*pow(sw,-2))                                                                                                       % ~H5pp~H5z W+   W+    coupling.
+x195x0         |2*pow(3,-0.5)*pow(sw,-2)                                                                                                                        % ~H5pp~HH  W+   W+    coupling.
+x196x0         |gw*sw                                                                                                                                           % A    W+   W-    coupling.
+x197x0         |-0.5*pow(sw,-1)                                                                                                                                 % A    Z.f  W+.f W-    coupling.
+x198x0         |-0.5*pow(sw,-1)                                                                                                                                 % A    ~H3p ~H3z W-    coupling.
+x199x0         |-0.5*pow(sw,-1)                                                                                                                                 % A    ~H3z ~H5p W-    coupling.
+x200x0         |3*pow(2,-0.5)*pow(sw,-1)                                                                                                                        % A    ~H3p~~H5ppW-    coupling.
+x201x0         |3*pow(2,-0.5)*pow(sw,-1)                                                                                                                        % A    ~H5p~~H5ppW-    coupling.
+x202x0         |(pow(3,-0.5)*pow(sw,-1))/2.                                                                                                                     % A    ~H3p ~H5z W-    coupling.
+x203x0         |-0.5*(pow(3,0.5)*pow(sw,-1))                                                                                                                    % A    ~H5p ~H5z W-    coupling.
+x204x0         |pow(0.6666666666666666,0.5)*pow(sw,-1)                                                                                                          % A    ~H3p ~HH  W-    coupling.
+x205x0         |pow(sw,-1)/2.                                                                                                                                   % A    W+.f HL   W-    coupling.
+x206x0         |(vphi*pow(sw,-1))/2.                                                                                                                            % A    W+.f W-    coupling.
+x207x0         |-0.5*pow(sw,-1)                                                                                                                                 % Z.f  W+.f W-    coupling.
+x208x0         |-0.5*pow(sw,-1)                                                                                                                                 % W+.f HL   W-    coupling.
+x209x0         |pow(sw,-1)/2.                                                                                                                                   % ~H3p ~H3z W-    coupling.
+x210x0         |-0.5*(pow(3,-0.5)*pow(sw,-1))                                                                                                                   % ~H3p ~H5z W-    coupling.
+x211x0         |-(pow(0.6666666666666666,0.5)*pow(sw,-1))                                                                                                       % ~H3p ~HH  W-    coupling.
+x212x0         |pow(2,-0.5)*pow(sw,-1)                                                                                                                          % ~H3p~~H5ppW-    coupling.
+x213x0         |-0.5*pow(sw,-1)                                                                                                                                 % ~H3z ~H5p W-    coupling.
+x214x0         |(pow(3,0.5)*pow(sw,-1))/2.                                                                                                                      % ~H5p ~H5z W-    coupling.
+x215x0         |pow(2,-0.5)*pow(sw,-1)                                                                                                                          % ~H5p~~H5ppW-    coupling.
+x216x0         |pow(sw,-2)/2.                                                                                                                                   % Z.f  Z.f  W+   W-    coupling.
+x217x0         |pow(sw,-2)/2.                                                                                                                                   % W+.f W-.f W+   W-    coupling.
+x218x0         |(3*pow(sw,-2))/2.                                                                                                                               % ~H3p ~H3p~W+   W-    coupling.
+x219x0         |pow(sw,-2)                                                                                                                                      % ~H3z ~H3z W+   W-    coupling.
+x220x0         |pow(sw,-2)/2.                                                                                                                                   % ~H3p~~H5p W+   W-    coupling.
+x221x0         |pow(sw,-2)/2.                                                                                                                                   % ~H3p ~H5p~W+   W-    coupling.
+x222x0         |(3*pow(sw,-2))/2.                                                                                                                               % ~H5p ~H5p~W+   W-    coupling.
+x223x0         |pow(sw,-2)                                                                                                                                      % ~H5pp~H5ppW+   W-    coupling.
+x224x0         |(5*pow(sw,-2))/3.                                                                                                                               % ~H5z ~H5z W+   W-    coupling.
+x225x0         |(pow(2,0.5)*pow(sw,-2))/3.                                                                                                                      % ~H5z ~HH  W+   W-    coupling.
+x226x0         |(4*pow(sw,-2))/3.                                                                                                                               % ~HH  ~HH  W+   W-    coupling.
+x227x0         |pow(sw,-2)/2.                                                                                                                                   % HL   HL   W+   W-    coupling.
+x228x0         |(vphi*pow(sw,-2))/2.                                                                                                                            % HL   W+   W-    coupling.
+x229x0         |-pow(sw,-2)                                                                                                                                     % ~H3p ~H3p W-   W-    coupling.
+x230x0         |pow(sw,-2)                                                                                                                                      % ~H3p ~H5p W-   W-    coupling.
+x231x0         |-pow(sw,-2)                                                                                                                                     % ~H5p ~H5p W-   W-    coupling.
+x232x0         |-(pow(2,0.5)*pow(sw,-2))                                                                                                                        % ~H3z ~H5ppW-   W-    coupling.
+x233x0         |-(pow(0.6666666666666666,0.5)*pow(sw,-2))                                                                                                       % ~H5pp~H5z W-   W-    coupling.
+x234x0         |2*pow(3,-0.5)*pow(sw,-2)                                                                                                                        % ~H5pp~HH  W-   W-    coupling.
+x235x0         |-(pow(gw,2)*pow(sw,2))                                                                                                                          % A    A    W+   W-    coupling.
+x236x0         |cw*gw                                                                                                                                           % W+   W-   Z     coupling.
+x237x0         |pow(gw,2)                                                                                                                                       % W+   W+   W-   W-    coupling.
+x238x0         |-0.5*CKM1x1                                                                                                                                     % W+.f u~   d     coupling.
+x238x1         |ydo-yup                                                                                                                                         % W+.f u~   d        coupling.
+x238x2         |ydo+yup                                                                                                                                         % W+.f u~   d        coupling.
+x239x0         |-0.5*CKM1x2                                                                                                                                     % W+.f u~   s     coupling.
+x239x1         |ys-yup                                                                                                                                          % W+.f u~   s        coupling.
+x239x2         |ys+yup                                                                                                                                          % W+.f u~   s        coupling.
+x240x0         |-0.5*CKM1x3                                                                                                                                     % W+.f u~   b     coupling.
+x240x1         |yb-yup                                                                                                                                          % W+.f u~   b        coupling.
+x240x2         |yb+yup                                                                                                                                          % W+.f u~   b        coupling.
+x241x0         |-0.5*CKM2x1                                                                                                                                     % W+.f c~   d     coupling.
+x241x1         |-yc+ydo                                                                                                                                         % W+.f c~   d        coupling.
+x241x2         |yc+ydo                                                                                                                                          % W+.f c~   d        coupling.
+x242x0         |-0.5*CKM2x2                                                                                                                                     % W+.f c~   s     coupling.
+x242x1         |-yc+ys                                                                                                                                          % W+.f c~   s        coupling.
+x242x2         |yc+ys                                                                                                                                           % W+.f c~   s        coupling.
+x243x0         |-0.5*CKM2x3                                                                                                                                     % W+.f c~   b     coupling.
+x243x1         |yb-yc                                                                                                                                           % W+.f c~   b        coupling.
+x243x2         |yb+yc                                                                                                                                           % W+.f c~   b        coupling.
+x244x0         |-0.5*CKM3x1                                                                                                                                     % W+.f t~   d     coupling.
+x244x1         |ydo-yt                                                                                                                                          % W+.f t~   d        coupling.
+x244x2         |ydo+yt                                                                                                                                          % W+.f t~   d        coupling.
+x245x0         |-0.5*CKM3x2                                                                                                                                     % W+.f t~   s     coupling.
+x245x1         |ys-yt                                                                                                                                           % W+.f t~   s        coupling.
+x245x2         |ys+yt                                                                                                                                           % W+.f t~   s        coupling.
+x246x0         |-0.5*CKM3x3                                                                                                                                     % W+.f t~   b     coupling.
+x246x1         |yb-yt                                                                                                                                           % W+.f t~   b        coupling.
+x246x2         |yb+yt                                                                                                                                           % W+.f t~   b        coupling.
+x247x0         |CKM1x1/2.                                                                                                                                       % W-.f d~   u     coupling.
+x247x1         |-ydo+yup                                                                                                                                        % W-.f d~   u        coupling.
+x247x2         |ydo+yup                                                                                                                                         % W-.f d~   u        coupling.
+x248x0         |CKM2x1/2.                                                                                                                                       % W-.f d~   c     coupling.
+x248x1         |yc-ydo                                                                                                                                          % W-.f d~   c        coupling.
+x248x2         |yc+ydo                                                                                                                                          % W-.f d~   c        coupling.
+x249x0         |CKM3x1/2.                                                                                                                                       % W-.f d~   t     coupling.
+x249x1         |-ydo+yt                                                                                                                                         % W-.f d~   t        coupling.
+x249x2         |ydo+yt                                                                                                                                          % W-.f d~   t        coupling.
+x250x0         |CKM1x2/2.                                                                                                                                       % W-.f s~   u     coupling.
+x250x1         |-ys+yup                                                                                                                                         % W-.f s~   u        coupling.
+x250x2         |ys+yup                                                                                                                                          % W-.f s~   u        coupling.
+x251x0         |CKM2x2/2.                                                                                                                                       % W-.f s~   c     coupling.
+x251x1         |yc-ys                                                                                                                                           % W-.f s~   c        coupling.
+x251x2         |yc+ys                                                                                                                                           % W-.f s~   c        coupling.
+x252x0         |CKM3x2/2.                                                                                                                                       % W-.f s~   t     coupling.
+x252x1         |-ys+yt                                                                                                                                          % W-.f s~   t        coupling.
+x252x2         |ys+yt                                                                                                                                           % W-.f s~   t        coupling.
+x253x0         |CKM1x3/2.                                                                                                                                       % W-.f b~   u     coupling.
+x253x1         |-yb+yup                                                                                                                                         % W-.f b~   u        coupling.
+x253x2         |yb+yup                                                                                                                                          % W-.f b~   u        coupling.
+x254x0         |CKM2x3/2.                                                                                                                                       % W-.f b~   c     coupling.
+x254x1         |-yb+yc                                                                                                                                          % W-.f b~   c        coupling.
+x254x2         |yb+yc                                                                                                                                           % W-.f b~   c        coupling.
+x255x0         |CKM3x3/2.                                                                                                                                       % W-.f b~   t     coupling.
+x255x1         |-yb+yt                                                                                                                                          % W-.f b~   t        coupling.
+x255x2         |yb+yt                                                                                                                                           % W-.f b~   t        coupling.
+x256x0         |-(ydo*pow(2,-0.5))                                                                                                                              % Z.f  d~   d     coupling.
+x257x0         |-(ys*pow(2,-0.5))                                                                                                                               % Z.f  s~   s     coupling.
+x258x0         |-(yb*pow(2,-0.5))                                                                                                                               % Z.f  b~   b     coupling.
+x259x0         |-(ydo*pow(2,-0.5))                                                                                                                              % HL   d~   d     coupling.
+x260x0         |-(ys*pow(2,-0.5))                                                                                                                               % HL   s~   s     coupling.
+x261x0         |-(yb*pow(2,-0.5))                                                                                                                               % HL   b~   b     coupling.
+x262x0         |-(ye*pow(2,-0.5))                                                                                                                               % Z.f  e+   e-    coupling.
+x263x0         |-(ym*pow(2,-0.5))                                                                                                                               % Z.f  m+   m-    coupling.
+x264x0         |-(ytau*pow(2,-0.5))                                                                                                                             % Z.f  tt+  tt-   coupling.
+x265x0         |-(ye*pow(2,-0.5))                                                                                                                               % HL   e+   e-    coupling.
+x266x0         |-(ym*pow(2,-0.5))                                                                                                                               % HL   m+   m-    coupling.
+x267x0         |-(ytau*pow(2,-0.5))                                                                                                                             % HL   tt+  tt-   coupling.
+x268x0         |-0.5*ye                                                                                                                                         % W+.f ve~  e-    coupling.
+x269x0         |-0.5*ym                                                                                                                                         % W+.f vm~  m-    coupling.
+x270x0         |-0.5*ytau                                                                                                                                       % W+.f vt~  tt-   coupling.
+x271x0         |ye/2.                                                                                                                                           % W-.f e+   ve    coupling.
+x272x0         |ym/2.                                                                                                                                           % W-.f m+   vm    coupling.
+x273x0         |ytau/2.                                                                                                                                         % W-.f tt+  vt    coupling.
+x274x0         |yup*pow(2,-0.5)                                                                                                                                 % Z.f  u~   u     coupling.
+x275x0         |yc*pow(2,-0.5)                                                                                                                                  % Z.f  c~   c     coupling.
+x276x0         |yt*pow(2,-0.5)                                                                                                                                  % Z.f  t~   t     coupling.
+x277x0         |-(yup*pow(2,-0.5))                                                                                                                              % HL   u~   u     coupling.
+x278x0         |-(yc*pow(2,-0.5))                                                                                                                               % HL   c~   c     coupling.
+x279x0         |-(yt*pow(2,-0.5))                                                                                                                               % HL   t~   t     coupling.
+x280x0         |-(sw*pow(cw,-1))+cw*pow(sw,-1)                                                                                                                  % A    W+.f W-.f Z     coupling.
+x281x0         |-(sw*pow(cw,-1))+cw*pow(sw,-1)                                                                                                                  % A    ~H3p ~H3p~Z     coupling.
+x282x0         |-(sw*pow(cw,-1))-cw*pow(sw,-1)                                                                                                                  % A    ~H3p~~H5p Z     coupling.
+x283x0         |-(sw*pow(cw,-1))-cw*pow(sw,-1)                                                                                                                  % A    ~H3p ~H5p~Z     coupling.
+x284x0         |-(sw*pow(cw,-1))+cw*pow(sw,-1)                                                                                                                  % A    ~H5p ~H5p~Z     coupling.
+x285x0         |-4*sw*pow(cw,-1)+4*cw*pow(sw,-1)                                                                                                                % A    ~H5pp~H5ppZ     coupling.
+x286x0         |(pow(cw,-1)*pow(sw,-1)*(pow(cw,2)+pow(sw,2)))/2.                                                                                                % Z.f  HL   Z     coupling.
+x287x0         |(sw*pow(cw,-1))/2.-(cw*pow(sw,-1))/2.                                                                                                           % W+.f W-.f Z     coupling.
+x288x0         |(sw*pow(cw,-1))/2.-(cw*pow(sw,-1))/2.                                                                                                           % ~H3p ~H3p~Z     coupling.
+x289x0         |(pow(cw,-1)*pow(sw,-1)*(pow(cw,2)+pow(sw,2)))/2.                                                                                                % ~H3p ~H5p~Z     coupling.
+x290x0         |-0.5*(pow(cw,-1)*pow(sw,-1)*(pow(cw,2)+pow(sw,2)))                                                                                              % ~H3p~~H5p Z     coupling.
+x291x0         |-(pow(3,-0.5)*pow(cw,-1)*pow(sw,-1)*(pow(cw,2)+pow(sw,2)))                                                                                      % ~H3z ~H5z Z     coupling.
+x292x0         |pow(0.6666666666666666,0.5)*pow(cw,-1)*pow(sw,-1)*(pow(cw,2)+pow(sw,2))                                                                         % ~H3z ~HH  Z     coupling.
+x293x0         |(sw*pow(cw,-1))/2.-(cw*pow(sw,-1))/2.                                                                                                           % ~H5p ~H5p~Z     coupling.
+x294x0         |sw*pow(cw,-1)-cw*pow(sw,-1)                                                                                                                     % ~H5pp~H5ppZ     coupling.
+x295x0         |-0.5*pow(cw,-1)                                                                                                                                 % Z.f  W-.f W+   Z     coupling.
+x296x0         |-pow(cw,-1)-(cw*pow(sw,-2))/2.                                                                                                                  % ~H3p~~H3z W+   Z     coupling.
+x297x0         |-pow(cw,-1)-(cw*pow(sw,-2))/2.                                                                                                                  % ~H3z ~H5p~W+   Z     coupling.
+x298x0         |pow(2,-0.5)*pow(cw,-1)*pow(sw,-2)*(pow(cw,2)-2*pow(sw,2))                                                                                       % ~H3p ~H5ppW+   Z     coupling.
+x299x0         |pow(2,-0.5)*pow(cw,-1)*pow(sw,-2)*(pow(cw,2)-2*pow(sw,2))                                                                                       % ~H5p ~H5ppW+   Z     coupling.
+x300x0         |(pow(3,-0.5)*pow(cw,-1)*(2+3*pow(cw,2)*pow(sw,-2)))/2.                                                                                          % ~H3p~~H5z W+   Z     coupling.
+x301x0         |(pow(3,-0.5)*pow(cw,-1)*(2-pow(cw,2)*pow(sw,-2)))/2.                                                                                            % ~H5p~~H5z W+   Z     coupling.
+x302x0         |-(pow(0.6666666666666666,0.5)*pow(cw,-1))                                                                                                       % ~H3p~~HH  W+   Z     coupling.
+x303x0         |-(pow(0.6666666666666666,0.5)*pow(cw,-1)*pow(sw,-2)*(pow(cw,2)+pow(sw,2)))                                                                      % ~H5p~~HH  W+   Z     coupling.
+x304x0         |-0.5*pow(cw,-1)                                                                                                                                 % W-.f HL   W+   Z     coupling.
+x305x0         |-0.5*(vphi*pow(cw,-1))                                                                                                                          % W-.f W+   Z     coupling.
+x306x0         |pow(cw,-1)/2.                                                                                                                                   % Z.f  W+.f W-   Z     coupling.
+x307x0         |pow(cw,-1)+(cw*pow(sw,-2))/2.                                                                                                                   % ~H3p ~H3z W-   Z     coupling.
+x308x0         |pow(cw,-1)+(cw*pow(sw,-2))/2.                                                                                                                   % ~H3z ~H5p W-   Z     coupling.
+x309x0         |pow(2,-0.5)*pow(cw,-1)*pow(sw,-2)*(pow(cw,2)-2*pow(sw,2))                                                                                       % ~H3p~~H5ppW-   Z     coupling.
+x310x0         |pow(2,-0.5)*pow(cw,-1)*pow(sw,-2)*(pow(cw,2)-2*pow(sw,2))                                                                                       % ~H5p~~H5ppW-   Z     coupling.
+x311x0         |(pow(3,-0.5)*pow(cw,-1)*(2+3*pow(cw,2)*pow(sw,-2)))/2.                                                                                          % ~H3p ~H5z W-   Z     coupling.
+x312x0         |(pow(3,-0.5)*pow(cw,-1)*(2-pow(cw,2)*pow(sw,-2)))/2.                                                                                            % ~H5p ~H5z W-   Z     coupling.
+x313x0         |-(pow(0.6666666666666666,0.5)*pow(cw,-1))                                                                                                       % ~H3p ~HH  W-   Z     coupling.
+x314x0         |-(pow(0.6666666666666666,0.5)*pow(cw,-1)*pow(sw,-2)*(pow(cw,2)+pow(sw,2)))                                                                      % ~H5p ~HH  W-   Z     coupling.
+x315x0         |-0.5*pow(cw,-1)                                                                                                                                 % W+.f HL   W-   Z     coupling.
+x316x0         |-0.5*(vphi*pow(cw,-1))                                                                                                                          % W+.f W-   Z     coupling.
+x317x0         |(pow(cw,-2)*pow(sw,-2)*pow(pow(cw,2)+pow(sw,2),2))/2.                                                                                           % Z.f  Z.f  Z    Z     coupling.
+x318x0         |(pow(cw,-2)*pow(sw,-2)*pow(pow(cw,2)-pow(sw,2),2))/2.                                                                                           % W+.f W-.f Z    Z     coupling.
+x319x0         |2*pow(cw,-2)*pow(sw,-2)*pow(pow(cw,2)+pow(sw,2),2)                                                                                              % ~H3z ~H3z Z    Z     coupling.
+x320x0         |-4+2*pow(cw,2)*pow(sw,-2)+2*pow(cw,-2)*pow(sw,2)                                                                                                % ~H5pp~H5ppZ    Z     coupling.
+x321x0         |(2*pow(cw,-2)*pow(sw,-2)*pow(pow(cw,2)+pow(sw,2),2))/3.                                                                                         % ~H5z ~H5z Z    Z     coupling.
+x322x0         |(-2*pow(2,0.5)*pow(cw,-2)*pow(sw,-2)*pow(pow(cw,2)+pow(sw,2),2))/3.                                                                             % ~H5z ~HH  Z    Z     coupling.
+x323x0         |(4*pow(cw,-2)*pow(sw,-2)*pow(pow(cw,2)+pow(sw,2),2))/3.                                                                                         % ~HH  ~HH  Z    Z     coupling.
+x324x0         |(pow(cw,-2)*pow(sw,-2)*pow(pow(cw,2)+pow(sw,2),2))/2.                                                                                           % HL   HL   Z    Z     coupling.
+x325x0         |pow(cw,-2)*pow(sw,-2)*(pow(cw,4)+pow(sw,4))                                                                                                     % ~H3p ~H3p~Z    Z     coupling.
+x326x0         |pow(cw,-2)*pow(sw,-2)*(-pow(cw,4)+pow(sw,4))                                                                                                    % ~H3p~~H5p Z    Z     coupling.
+x327x0         |pow(cw,-2)*pow(sw,-2)*(-pow(cw,4)+pow(sw,4))                                                                                                    % ~H3p ~H5p~Z    Z     coupling.
+x328x0         |pow(cw,-2)*pow(sw,-2)*(pow(cw,4)+pow(sw,4))                                                                                                     % ~H5p ~H5p~Z    Z     coupling.
+x329x0         |(vphi*pow(cw,-2)*pow(sw,-2)*pow(pow(cw,2)+pow(sw,2),2))/2.                                                                                      % HL   Z    Z     coupling.
+x330x0         |cw*sw*pow(gw,2)                                                                                                                                 % A    W+   W-   Z     coupling.
+x331x0         |-(pow(cw,2)*pow(gw,2))                                                                                                                          % W+   W-   Z    Z     coupling.
+x332x0         |-0.3333333333333333                                                                                                                             % A    d~   d     coupling.
+x333x0         |-0.3333333333333333                                                                                                                             % A    s~   s     coupling.
+x334x0         |-0.3333333333333333                                                                                                                             % A    b~   b     coupling.
+x335x0         |(pow(cw,-1)*pow(sw,-1))/12.                                                                                                                     % Z    d~   d     coupling.
+x335x1         |-3*pow(cw,2)+pow(sw,2)                                                                                                                          % Z    d~   d        coupling.
+x335x2         |3*(pow(cw,2)+pow(sw,2))                                                                                                                         % Z    d~   d        coupling.
+x336x0         |(pow(cw,-1)*pow(sw,-1))/12.                                                                                                                     % Z    s~   s     coupling.
+x336x1         |-3*pow(cw,2)+pow(sw,2)                                                                                                                          % Z    s~   s        coupling.
+x336x2         |3*(pow(cw,2)+pow(sw,2))                                                                                                                         % Z    s~   s        coupling.
+x337x0         |(pow(cw,-1)*pow(sw,-1))/12.                                                                                                                     % Z    b~   b     coupling.
+x337x1         |-3*pow(cw,2)+pow(sw,2)                                                                                                                          % Z    b~   b        coupling.
+x337x2         |3*(pow(cw,2)+pow(sw,2))                                                                                                                         % Z    b~   b        coupling.
+x338x0         |-1                                                                                                                                              % A    e+   e-    coupling.
+x339x0         |-1                                                                                                                                              % A    m+   m-    coupling.
+x340x0         |-1                                                                                                                                              % A    tt+  tt-   coupling.
+x341x0         |(pow(cw,-1)*pow(sw,-1))/4.                                                                                                                      % Z    e+   e-    coupling.
+x341x1         |-pow(cw,2)+3*pow(sw,2)                                                                                                                          % Z    e+   e-       coupling.
+x341x2         |pow(cw,2)+pow(sw,2)                                                                                                                             % Z    e+   e-       coupling.
+x342x0         |(pow(cw,-1)*pow(sw,-1))/4.                                                                                                                      % Z    m+   m-    coupling.
+x342x1         |-pow(cw,2)+3*pow(sw,2)                                                                                                                          % Z    m+   m-       coupling.
+x342x2         |pow(cw,2)+pow(sw,2)                                                                                                                             % Z    m+   m-       coupling.
+x343x0         |(pow(cw,-1)*pow(sw,-1))/4.                                                                                                                      % Z    tt+  tt-   coupling.
+x343x1         |-pow(cw,2)+3*pow(sw,2)                                                                                                                          % Z    tt+  tt-      coupling.
+x343x2         |pow(cw,2)+pow(sw,2)                                                                                                                             % Z    tt+  tt-      coupling.
+x344x0         |0.6666666666666666                                                                                                                              % A    u~   u     coupling.
+x345x0         |0.6666666666666666                                                                                                                              % A    c~   c     coupling.
+x346x0         |0.6666666666666666                                                                                                                              % A    t~   t     coupling.
+x347x0         |-0.08333333333333333*(pow(cw,-1)*pow(sw,-1))                                                                                                    % Z    u~   u     coupling.
+x347x1         |-3*pow(cw,2)+5*pow(sw,2)                                                                                                                        % Z    u~   u        coupling.
+x347x2         |3*(pow(cw,2)+pow(sw,2))                                                                                                                         % Z    u~   u        coupling.
+x348x0         |-0.08333333333333333*(pow(cw,-1)*pow(sw,-1))                                                                                                    % Z    c~   c     coupling.
+x348x1         |-3*pow(cw,2)+5*pow(sw,2)                                                                                                                        % Z    c~   c        coupling.
+x348x2         |3*(pow(cw,2)+pow(sw,2))                                                                                                                         % Z    c~   c        coupling.
+x349x0         |-0.08333333333333333*(pow(cw,-1)*pow(sw,-1))                                                                                                    % Z    t~   t     coupling.
+x349x1         |-3*pow(cw,2)+5*pow(sw,2)                                                                                                                        % Z    t~   t        coupling.
+x349x2         |3*(pow(cw,2)+pow(sw,2))                                                                                                                         % Z    t~   t        coupling.
+x350x0         |-0.25*(pow(cw,-1)*pow(sw,-1)*(pow(cw,2)+pow(sw,2)))                                                                                             % Z    ve~  ve    coupling.
+x351x0         |-0.25*(pow(cw,-1)*pow(sw,-1)*(pow(cw,2)+pow(sw,2)))                                                                                             % Z    vm~  vm    coupling.
+x352x0         |-0.25*(pow(cw,-1)*pow(sw,-1)*(pow(cw,2)+pow(sw,2)))                                                                                             % Z    vt~  vt    coupling.
+x353x0         |-0.5*(pow(2,-0.5)*pow(sw,-1))                                                                                                                   % W+   ve~  e-    coupling.
+x354x0         |-0.5*(pow(2,-0.5)*pow(sw,-1))                                                                                                                   % W+   vm~  m-    coupling.
+x355x0         |-0.5*(pow(2,-0.5)*pow(sw,-1))                                                                                                                   % W+   vt~  tt-   coupling.
+x356x0         |-0.5*(CKM1x1*pow(2,-0.5)*pow(sw,-1))                                                                                                            % W+   u~   d     coupling.
+x357x0         |-0.5*(CKM1x2*pow(2,-0.5)*pow(sw,-1))                                                                                                            % W+   u~   s     coupling.
+x358x0         |-0.5*(CKM1x3*pow(2,-0.5)*pow(sw,-1))                                                                                                            % W+   u~   b     coupling.
+x359x0         |-0.5*(CKM2x1*pow(2,-0.5)*pow(sw,-1))                                                                                                            % W+   c~   d     coupling.
+x360x0         |-0.5*(CKM2x2*pow(2,-0.5)*pow(sw,-1))                                                                                                            % W+   c~   s     coupling.
+x361x0         |-0.5*(CKM2x3*pow(2,-0.5)*pow(sw,-1))                                                                                                            % W+   c~   b     coupling.
+x362x0         |-0.5*(CKM3x1*pow(2,-0.5)*pow(sw,-1))                                                                                                            % W+   t~   d     coupling.
+x363x0         |-0.5*(CKM3x2*pow(2,-0.5)*pow(sw,-1))                                                                                                            % W+   t~   s     coupling.
+x364x0         |-0.5*(CKM3x3*pow(2,-0.5)*pow(sw,-1))                                                                                                            % W+   t~   b     coupling.
+x365x0         |-0.5*(pow(2,-0.5)*pow(sw,-1))                                                                                                                   % W-   e+   ve    coupling.
+x366x0         |-0.5*(pow(2,-0.5)*pow(sw,-1))                                                                                                                   % W-   m+   vm    coupling.
+x367x0         |-0.5*(pow(2,-0.5)*pow(sw,-1))                                                                                                                   % W-   tt+  vt    coupling.
+x368x0         |-0.5*(CKM1x1*pow(2,-0.5)*pow(sw,-1))                                                                                                            % W-   d~   u     coupling.
+x369x0         |-0.5*(CKM2x1*pow(2,-0.5)*pow(sw,-1))                                                                                                            % W-   d~   c     coupling.
+x370x0         |-0.5*(CKM3x1*pow(2,-0.5)*pow(sw,-1))                                                                                                            % W-   d~   t     coupling.
+x371x0         |-0.5*(CKM1x2*pow(2,-0.5)*pow(sw,-1))                                                                                                            % W-   s~   u     coupling.
+x372x0         |-0.5*(CKM2x2*pow(2,-0.5)*pow(sw,-1))                                                                                                            % W-   s~   c     coupling.
+x373x0         |-0.5*(CKM3x2*pow(2,-0.5)*pow(sw,-1))                                                                                                            % W-   s~   t     coupling.
+x374x0         |-0.5*(CKM1x3*pow(2,-0.5)*pow(sw,-1))                                                                                                            % W-   b~   u     coupling.
+x375x0         |-0.5*(CKM2x3*pow(2,-0.5)*pow(sw,-1))                                                                                                            % W-   b~   c     coupling.
+x376x0         |-0.5*(CKM3x3*pow(2,-0.5)*pow(sw,-1))                                                                                                            % W-   b~   t     coupling.
