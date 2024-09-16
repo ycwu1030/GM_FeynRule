@@ -15,17 +15,23 @@ Block ckmblock
     1 2.277360e-01 # cabi
 
 ###################################
+## INFORMATION FOR LOOP
+###################################
+Block loop
+    1 9.118800e+01 # MU_R
+
+###################################
 ## INFORMATION FOR NEUTRALFORMFACTO
 ###################################
 Block NEUTRALFORMFACTORS
-    1 0.350969E-05 # H5NGAGA
-    2 0.491066E-05 # H5NZGA
-    3 0.387462E-05 # H3NGAGA
-    4 0.146032E-05 # H3NZGA
-    5 0.226717E-04 # H3NGG
-    6 0.904125E-06 # HHGAGA
-    7 0.420872E-06 # HHZGA
-    8 0.194901E-04 # HHGG
+    1 0.000000e+00 # H5NGAGA
+    2 0.000000e+00 # H5NZGA
+    3 0.000000e+00 # H3NGAGA
+    4 0.000000e+00 # H3NZGA
+    5 0.000000e+00 # H3NGG
+    6 0.000000e+00 # HHGAGA
+    7 0.000000e+00 # HHZGA
+    8 0.000000e+00 # HHGG
     9 0.311415E-04 # HLGAGA
    10 0.575190E-04 # HLZGA
    11 0.509981E-04 # HLGG
@@ -34,19 +40,19 @@ Block NEUTRALFORMFACTORS
 ## INFORMATION FOR FORMFACTORS
 ###################################
 Block REXCHARGEDFORMFACTORS
-    1 0.673982E-06 # RxH5PWGA
-    2 1.000000E-09 # RxH5PWGATILDE(DEBUG)
-    3 0.205683E-05 # RxH3PWGA
-    4 0.212495E-05 # RxH3PWGATILDE
+    1 0.000000e+00 # RxH5PWGA
+    2 0.000000e+00 # RxH5PWGATILDE(DEBUG)
+    3 0.000000e+00 # RxH3PWGA
+    4 0.000000e+00 # RxH3PWGATILDE
 
 ###################################
 ## INFORMATION FOR FORMFACTORS
 ###################################
 Block IMXCHARGEDFORMFACTORS
-    1 0.461667E-05 # IxH5PWGA
-    2 1.000000E-09 # IxH5PWGATILDE(DEBUG)
-    3 -.367856E-06 # IxH3PWGA
-    4 0.514009E-06 # IxH3PWGATILDE
+    1 0.000000e+00 # IxH5PWGA
+    2 0.000000e+00 # IxH5PWGATILDE(DEBUG)
+    3 0.000000e+00 # IxH3PWGA
+    4 0.000000e+00 # IxH3PWGATILDE
 
 ###################################
 ## INFORMATION FOR MASS
@@ -75,9 +81,9 @@ Block mass
   21 0.000000 # g : 0.0
   22 0.000000 # a : 0.0
   24 7.982436e+01 # w+ : cmath.sqrt(MZ__exp__2/2. + cmath.sqrt(MZ__exp__4/4. - (aEW*cmath.pi*MZ__exp__2)/(Gf*sqrt__2)))
-  252 2.375230e+02 # hh : cmath.sqrt(Mat11sq + Mat22sq - MHL__exp__2)
-  253 2.571418e+02 # h3p : cmath.sqrt((v__exp__2*(mu3sq - 6*M2coeff*vchi + 4*(lam3 + 3*lam4)*vchi__exp__2 + ((4*lam2 - lam5)*vphi__exp__2)/2.))/vphi__exp__2)
-  254 2.571418e+02 # h3z : MH3
+  252 2.585255e+02 # hh : cmath.sqrt(Mat11sq + Mat22sq - MHL__exp__2)
+  253 2.725409e+02 # h3p : cmath.sqrt((v__exp__2*(mu3sq - 6*M2coeff*vchi + 4*(lam3 + 3*lam4)*vchi__exp__2 + ((4*lam2 - lam5)*vphi__exp__2)/2.))/vphi__exp__2)
+  254 2.725409e+02 # h3z : MH3
   255 3.000000e+02 # h5pp : MH5
   256 3.000000e+02 # h5p : MH5
 
@@ -89,7 +95,7 @@ Block potentialparam
     2 0.157157E+00 # lam3
     3 0.714228E-01 # lam4
     4 0.970585E-01 # lam5
-    5 0.100200E+03 # M2coeff
+    5 0.000000e+00 # M2coeff
 
 ###################################
 ## INFORMATION FOR SMINPUTS
@@ -103,7 +109,7 @@ Block sminputs
 ## INFORMATION FOR VEV
 ###################################
 Block vev
-    1 0.198273E+00 # tanth
+    1 0.000000e+00 # tanth
 
 ###################################
 ## INFORMATION FOR YUKAWA

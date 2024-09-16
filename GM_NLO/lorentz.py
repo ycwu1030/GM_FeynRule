@@ -1,6 +1,6 @@
-# This file was automatically created by FeynRules 2.3.32
-# Mathematica version: 10.4.1 for Mac OS X x86 (64-bit) (April 17, 2016)
-# Date: Sat 15 Sep 2018 23:07:42
+# This file was automatically created by FeynRules 2.3.49
+# Mathematica version: 13.1.0 for Mac OS X ARM (64-bit) (June 16, 2022)
+# Date: Mon 16 Sep 2024 14:45:10
 
 
 from object_library import all_lorentz, Lorentz
@@ -46,11 +46,7 @@ UUS1 = Lorentz(name = 'UUS1',
 
 UUV1 = Lorentz(name = 'UUV1',
                spins = [ -1, -1, 3 ],
-               structure = 'P(3,2)')
-
-UUV2 = Lorentz(name = 'UUV2',
-               spins = [ -1, -1, 3 ],
-               structure = 'P(3,3)')
+               structure = 'P(3,2) + P(3,3)')
 
 SSS1 = Lorentz(name = 'SSS1',
                spins = [ 1, 1, 1 ],

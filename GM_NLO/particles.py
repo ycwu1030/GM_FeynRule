@@ -1,6 +1,6 @@
-# This file was automatically created by FeynRules 2.3.32
-# Mathematica version: 10.4.1 for Mac OS X x86 (64-bit) (April 17, 2016)
-# Date: Sat 15 Sep 2018 23:07:41
+# This file was automatically created by FeynRules 2.3.49
+# Mathematica version: 13.1.0 for Mac OS X ARM (64-bit) (June 16, 2022)
+# Date: Mon 16 Sep 2024 14:45:09
 
 
 from __future__ import division
@@ -318,18 +318,18 @@ G = Particle(pdg_code = 21,
              GhostNumber = 0,
              LeptonNumber = 0)
 
-h = Particle(pdg_code = 25,
-             name = 'h',
-             antiname = 'h',
-             spin = 1,
-             color = 1,
-             mass = Param.Mh,
-             width = Param.Wh,
-             texname = 'h',
-             antitexname = 'h',
-             charge = 0,
-             GhostNumber = 0,
-             LeptonNumber = 0)
+HL = Particle(pdg_code = 25,
+              name = 'HL',
+              antiname = 'HL',
+              spin = 1,
+              color = 1,
+              mass = Param.MHL,
+              width = Param.WHL,
+              texname = 'HL',
+              antitexname = 'HL',
+              charge = 0,
+              GhostNumber = 0,
+              LeptonNumber = 0)
 
 G0 = Particle(pdg_code = 250,
               name = 'G0',
@@ -361,18 +361,18 @@ G__plus__ = Particle(pdg_code = 251,
 
 G__minus__ = G__plus__.anti()
 
-H = Particle(pdg_code = 252,
-             name = 'H',
-             antiname = 'H',
-             spin = 1,
-             color = 1,
-             mass = Param.MH,
-             width = Param.WH,
-             texname = 'H',
-             antitexname = 'H',
-             charge = 0,
-             GhostNumber = 0,
-             LeptonNumber = 0)
+HH = Particle(pdg_code = 252,
+              name = 'HH',
+              antiname = 'HH',
+              spin = 1,
+              color = 1,
+              mass = Param.MHH,
+              width = Param.WHH,
+              texname = 'HH',
+              antitexname = 'HH',
+              charge = 0,
+              GhostNumber = 0,
+              LeptonNumber = 0)
 
 H3p = Particle(pdg_code = 253,
                name = 'H3p',

@@ -1,6 +1,6 @@
-# This file was automatically created by FeynRules 2.3.32
-# Mathematica version: 10.4.1 for Mac OS X x86 (64-bit) (April 17, 2016)
-# Date: Sat 15 Sep 2018 23:07:41
+# This file was automatically created by FeynRules 2.3.49
+# Mathematica version: 13.1.0 for Mac OS X ARM (64-bit) (June 16, 2022)
+# Date: Mon 16 Sep 2024 14:45:09
 
 
 
@@ -186,21 +186,13 @@ lam5 = Parameter(name = 'lam5',
                  lhablock = 'POTENTIALPARAM',
                  lhacode = [ 4 ])
 
-M1coeff = Parameter(name = 'M1coeff',
-                    nature = 'external',
-                    type = 'real',
-                    value = 100,
-                    texname = 'M_1',
-                    lhablock = 'POTENTIALPARAM',
-                    lhacode = [ 5 ])
-
 M2coeff = Parameter(name = 'M2coeff',
                     nature = 'external',
                     type = 'real',
                     value = 100,
                     texname = 'M_2',
                     lhablock = 'POTENTIALPARAM',
-                    lhacode = [ 6 ])
+                    lhacode = [ 5 ])
 
 RxH5PWGA = Parameter(name = 'RxH5PWGA',
                      nature = 'external',
@@ -418,13 +410,21 @@ MZ = Parameter(name = 'MZ',
                lhablock = 'MASS',
                lhacode = [ 23 ])
 
-Mh = Parameter(name = 'Mh',
-               nature = 'external',
-               type = 'real',
-               value = 125,
-               texname = '\\text{Mh}',
-               lhablock = 'MASS',
-               lhacode = [ 25 ])
+MHL = Parameter(name = 'MHL',
+                nature = 'external',
+                type = 'real',
+                value = 125,
+                texname = '\\text{MHL}',
+                lhablock = 'MASS',
+                lhacode = [ 25 ])
+
+MH5 = Parameter(name = 'MH5',
+                nature = 'external',
+                type = 'real',
+                value = 300,
+                texname = '\\text{MH5}',
+                lhablock = 'MASS',
+                lhacode = [ 257 ])
 
 WT = Parameter(name = 'WT',
                nature = 'external',
@@ -450,21 +450,21 @@ WW = Parameter(name = 'WW',
                lhablock = 'DECAY',
                lhacode = [ 24 ])
 
-Wh = Parameter(name = 'Wh',
-               nature = 'external',
-               type = 'real',
-               value = 0.00575308848,
-               texname = '\\text{Wh}',
-               lhablock = 'DECAY',
-               lhacode = [ 25 ])
+WHL = Parameter(name = 'WHL',
+                nature = 'external',
+                type = 'real',
+                value = 0.00575308848,
+                texname = '\\text{WHL}',
+                lhablock = 'DECAY',
+                lhacode = [ 25 ])
 
-WH = Parameter(name = 'WH',
-               nature = 'external',
-               type = 'real',
-               value = 1,
-               texname = '\\text{WH}',
-               lhablock = 'DECAY',
-               lhacode = [ 252 ])
+WHH = Parameter(name = 'WHH',
+                nature = 'external',
+                type = 'real',
+                value = 1,
+                texname = '\\text{WHH}',
+                lhablock = 'DECAY',
+                lhacode = [ 252 ])
 
 WH3p = Parameter(name = 'WH3p',
                  nature = 'external',
@@ -605,14 +605,8 @@ ee = Parameter(name = 'ee',
 vchi = Parameter(name = 'vchi',
                  nature = 'internal',
                  type = 'real',
-                 value = 'sh/(2.*2**0.75*cmath.sqrt(Gf))',
+                 value = '(sh*v)/(2.*cmath.sqrt(2))',
                  texname = 'v_{\\chi }')
-
-MH3 = Parameter(name = 'MH3',
-                nature = 'internal',
-                type = 'real',
-                value = 'cmath.sqrt(v**2*(lam5/2. + M1coeff/(4.*vchi)))',
-                texname = 'M_3')
 
 sw2 = Parameter(name = 'sw2',
                 nature = 'internal',
@@ -623,7 +617,7 @@ sw2 = Parameter(name = 'sw2',
 vphi = Parameter(name = 'vphi',
                  nature = 'internal',
                  type = 'real',
-                 value = '(2*vchi*cmath.sqrt(2))/tanth',
+                 value = 'ch*v',
                  texname = 'v_{\\phi }')
 
 cw = Parameter(name = 'cw',
@@ -632,28 +626,10 @@ cw = Parameter(name = 'cw',
                value = 'cmath.sqrt(1 - sw2)',
                texname = 'c_w')
 
-Mat12sq = Parameter(name = 'Mat12sq',
-                    nature = 'internal',
-                    type = 'real',
-                    value = '((-M1coeff + 4*(2*lam2 - lam5)*vchi)*vphi*cmath.sqrt(3))/2.',
-                    texname = '\\text{Mat12sq}')
-
-Mat22sq = Parameter(name = 'Mat22sq',
-                    nature = 'internal',
-                    type = 'real',
-                    value = '-6*M2coeff*vchi + 8*(lam3 + 3*lam4)*vchi**2 + (M1coeff*vphi**2)/(4.*vchi)',
-                    texname = '\\text{Mat22sq}')
-
-MH5 = Parameter(name = 'MH5',
-                nature = 'internal',
-                type = 'real',
-                value = 'cmath.sqrt(12*M2coeff*vchi + 8*lam3*vchi**2 + (3*lam5*vphi**2)/2. + (M1coeff*vphi**2)/(4.*vchi))',
-                texname = 'M_5')
-
 mu3sq = Parameter(name = 'mu3sq',
                   nature = 'internal',
                   type = 'real',
-                  value = '6*M2coeff*vchi - 4*(lam3 + 3*lam4)*vchi**2 - (2*lam2 - lam5)*vphi**2 + (M1coeff*vphi**2)/(4.*vchi)',
+                  value = 'MH5**2 - 6*M2coeff*vchi - 12*(lam3 + lam4)*vchi**2 - ((4*lam2 + lam5)*vphi**2)/2.',
                   texname = '\\text{mu3sq}')
 
 sw = Parameter(name = 'sw',
@@ -716,6 +692,18 @@ yup = Parameter(name = 'yup',
                 value = '(ymup*cmath.sqrt(2))/vphi',
                 texname = '\\text{yup}')
 
+Mat22sq = Parameter(name = 'Mat22sq',
+                    nature = 'internal',
+                    type = 'real',
+                    value = 'mu3sq - 12*M2coeff*vchi + 12*(lam3 + 3*lam4)*vchi**2 + (2*lam2 - lam5)*vphi**2',
+                    texname = '\\text{Mat22sq}')
+
+MH3 = Parameter(name = 'MH3',
+                nature = 'internal',
+                type = 'real',
+                value = 'cmath.sqrt((v**2*(mu3sq - 6*M2coeff*vchi + 4*(lam3 + 3*lam4)*vchi**2 + ((4*lam2 - lam5)*vphi**2)/2.))/vphi**2)',
+                texname = 'M_3')
+
 g1 = Parameter(name = 'g1',
                nature = 'internal',
                type = 'real',
@@ -728,17 +716,41 @@ gw = Parameter(name = 'gw',
                value = 'ee/sw',
                texname = 'g_w')
 
-lam1 = Parameter(name = 'lam1',
-                 nature = 'internal',
-                 type = 'real',
-                 value = '(Mh**2 + Mat12sq**2/(Mat22sq - Mh**2))/(8.*vphi**2)',
-                 texname = '\\lambda _1')
+M1coeff = Parameter(name = 'M1coeff',
+                    nature = 'internal',
+                    type = 'real',
+                    value = '(4*vchi*(mu3sq - 6*M2coeff*vchi + 4*(lam3 + 3*lam4)*vchi**2 + (2*lam2 - lam5)*vphi**2))/vphi**2',
+                    texname = '\\text{M1coeff}')
+
+Mat12sq = Parameter(name = 'Mat12sq',
+                    nature = 'internal',
+                    type = 'real',
+                    value = '((-M1coeff + 4*(2*lam2 - lam5)*vchi)*vphi*cmath.sqrt(3))/2.',
+                    texname = '\\text{Mat12sq}')
 
 Mat11sq = Parameter(name = 'Mat11sq',
                     nature = 'internal',
                     type = 'real',
-                    value = '8*lam1*vphi**2',
+                    value = 'MHL**2 + Mat12sq**2/(Mat22sq - MHL**2)',
                     texname = '\\text{Mat11sq}')
+
+MHH = Parameter(name = 'MHH',
+                nature = 'internal',
+                type = 'real',
+                value = 'cmath.sqrt(Mat11sq + Mat22sq - MHL**2)',
+                texname = 'M_{\\text{HH}}')
+
+lam1 = Parameter(name = 'lam1',
+                 nature = 'internal',
+                 type = 'real',
+                 value = 'Mat11sq/(8.*vphi**2)',
+                 texname = '\\lambda _1')
+
+c2a = Parameter(name = 'c2a',
+                nature = 'internal',
+                type = 'real',
+                value = '(Mat11sq - Mat22sq)/(-MHH**2 + MHL**2)',
+                texname = '\\text{c2a}')
 
 mu2sq = Parameter(name = 'mu2sq',
                   nature = 'internal',
@@ -746,16 +758,22 @@ mu2sq = Parameter(name = 'mu2sq',
                   value = '(3*M1coeff*vchi)/2. - 3*(2*lam2 - lam5)*vchi**2 - 4*lam1*vphi**2',
                   texname = '\\text{mu2sq}')
 
-MH = Parameter(name = 'MH',
-               nature = 'internal',
-               type = 'real',
-               value = 'cmath.sqrt(Mat11sq + Mat22sq - Mh**2)',
-               texname = 'M_H')
+s2a = Parameter(name = 's2a',
+                nature = 'internal',
+                type = 'real',
+                value = '(-2*Mat12sq)/(-MHH**2 + MHL**2)',
+                texname = '\\text{s2a}')
+
+SignS2A = Parameter(name = 'SignS2A',
+                    nature = 'internal',
+                    type = 'real',
+                    value = 'cond(s2a,0,s2a/(0**cmath.sqrt(s2a**2) + cmath.sqrt(s2a**2)))',
+                    texname = '\\text{SignS2A}')
 
 sa = Parameter(name = 'sa',
                nature = 'internal',
                type = 'real',
-               value = 'cmath.sin(0.5*cmath.asin((2*Mat12sq)/(-Mh**2 + MH**2)))',
+               value = '(SignS2A*cmath.sqrt(1 - c2a))/cmath.sqrt(2)',
                texname = 's_{\\alpha }')
 
 ca = Parameter(name = 'ca',

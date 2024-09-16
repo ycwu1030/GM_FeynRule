@@ -16,10 +16,10 @@
 M$ModelName = "GM";
 
 M$Information = {Authors -> {"K. Hartling", "K. Kumar","H. Logan","Y. Wu"},
-             Version -> "1.2.1",
-             Date -> "09. 13. 2018",
-             Institutions -> {"Carleton University"},
-             Emails -> {"khally@physics.carleton.ca","kkumar@physics.carleton.ca","logan@physics.carleton.ca","ycwu@physics.carleton.ca"},
+             Version -> "2.0.0",
+             Date -> "09. 16. 2024",
+             Institutions -> {"Carleton University", "Nanjing Normal University"},
+             Emails -> {"khally@physics.carleton.ca","kkumar@physics.carleton.ca","logan@physics.carleton.ca","ycwu@njnu.edu.cn"},
              URLs -> "https://feynrules.irmp.ucl.ac.be/wiki/GeorgiMachacekModel"};
 
 FR$DSign=-1;
@@ -27,6 +27,8 @@ FeynmanGauge = True;
 
 
 (****** Change Log *******)
+(*  v2.0.0: Un-compatible update; Combining the Z2 case (sH=M1=M2=0)        *)
+(*          Using new parameter scheme to accommondate Z2 case              *)
 (*  v1.2.2: Change names: Mh -> MHL,  MH -> MHH, Wh -> WHL, WH -> WHH       *)
 (*          So we can avoid some subtle issue when using UFO in MG5         *)
 (*  v1.2.1: Effective vertex for HL HH H3 H5 coupling with gamma G W/Z      *)
@@ -86,6 +88,9 @@ M$InteractionOrderHierarchy = {
 
 (****************  Parameters *************)
 
+abs[x_]:>If[x>0,x,-x]
+cond[x_,y_,z_]:>If[x==0,y,z]
+
 M$Parameters = {
 
   (* External parameters *)
@@ -119,8 +124,8 @@ M$Parameters = {
         ParameterType -> External,
         BlockName -> YUKAWA,
         Value -> 5.04*10^(-3),
-	OrderBlock -> {1},
-	Description -> "Down Yukawa mass"},
+	    OrderBlock -> {1},
+	    Description -> "Down Yukawa mass"},
 
 
   ymup == {
@@ -134,8 +139,8 @@ M$Parameters = {
         ParameterType -> External,
         BlockName -> YUKAWA,
         Value -> 0.101,
-	OrderBlock -> {3},
-	Description -> "Strange Yukawa mass"},
+	    OrderBlock -> {3},
+	    Description -> "Strange Yukawa mass"},
 
 
   ymc == {
@@ -202,7 +207,7 @@ M$Parameters = {
         ParameterType -> External,
         BlockName -> POTENTIALPARAM,
         Value -> 0.1,
-	TeX -> Subscript[\[Lambda], 3],
+        TeX -> Subscript[\[Lambda], 3],
         InteractionOrder -> {QED,2},
         Description -> "Ext. Scalar Potential"},
 
@@ -210,7 +215,7 @@ M$Parameters = {
         ParameterType -> External,
         BlockName -> POTENTIALPARAM,
         Value -> 0.1,
-	TeX -> Subscript[\[Lambda], 4],
+        TeX -> Subscript[\[Lambda], 4],
         InteractionOrder -> {QED,2},
         Description -> "Ext. Scalar Potential"},
 
@@ -218,23 +223,23 @@ M$Parameters = {
         ParameterType -> External,
         BlockName -> POTENTIALPARAM,
         Value -> 0.1,
-	TeX -> Subscript[\[Lambda], 5],
+        TeX -> Subscript[\[Lambda], 5],
         InteractionOrder -> {QED,2},
         Description -> "Ext. Scalar Potential"},
 
-    M1coeff == {
+    (* M1coeff == {
         ParameterType -> External,
         BlockName -> POTENTIALPARAM,
         Value -> 100,
-	TeX -> Subscript[M, 1],
+        TeX -> Subscript[M, 1],
         InteractionOrder -> {QED,1},
-        Description -> "Ext. Scalar Potential (parameter M1)"},
+        Description -> "Ext. Scalar Potential (parameter M1)"}, *)
 
      M2coeff == {
         ParameterType -> External,
         BlockName -> POTENTIALPARAM,
         Value -> 100,
-	TeX -> Subscript[M, 2],
+        TeX -> Subscript[M, 2],
         InteractionOrder -> {QED,1},
         Description -> "Ext. Scalar Potential (parameter M2)"},
 
@@ -242,13 +247,13 @@ M$Parameters = {
         ParameterType -> External,
         BlockName -> VEV,
         Value -> 0.1,
-	TeX -> Subscript[t, H],
+        TeX -> Subscript[t, H],
         Description -> "tan(theta_H)"},
 
 (* Effective vertex EXTERNAL PARAMETERS *)
 (* Real Part *)
     RxH5PWGA == {
-    ParameterType -> External,
+        ParameterType -> External,
         BlockName -> RExCHARGEDFORMFACTORS,
         Value -> 0.01,
         OrderBlock -> {1},
@@ -256,7 +261,7 @@ M$Parameters = {
         Description -> "Scalar Form Factor for H5WGa effective vertex"
     },
     RxH5PWGATILDE == {
-    ParameterType -> External,
+        ParameterType -> External,
         BlockName -> RExCHARGEDFORMFACTORS,
         Value -> 0.0,
         OrderBlock -> {2},
@@ -264,7 +269,7 @@ M$Parameters = {
         Description -> "Scalar Form Factor for H5WGa effective vertex, For debug only."
     },
     RxH3PWGA == {
-    ParameterType -> External,
+        ParameterType -> External,
         BlockName -> RExCHARGEDFORMFACTORS,
         Value -> 0.01,
         OrderBlock -> {3},
@@ -272,7 +277,7 @@ M$Parameters = {
         Description -> "Scalar Form Factor for H3WGa effective vertex"
     },
     RxH3PWGATILDE == {
-    ParameterType -> External,
+        ParameterType -> External,
         BlockName -> RExCHARGEDFORMFACTORS,
         Value -> 0.01,
         OrderBlock -> {4},
@@ -280,7 +285,7 @@ M$Parameters = {
         Description -> "Scalar Form Factor for H3WGaTilde effective vertex"
     },
     H5NGAGA == {
-    ParameterType -> External,
+        ParameterType -> External,
         BlockName -> NEUTRALFORMFACTORS,
         Value -> 0.01,
         OrderBlock -> {1},
@@ -288,7 +293,7 @@ M$Parameters = {
         Description -> "Scalar Form Factor for H5NGAGA effective vertex"
     },
     H5NZGA == {
-    ParameterType -> External,
+        ParameterType -> External,
         BlockName -> NEUTRALFORMFACTORS,
         Value -> 0.01,
         OrderBlock -> {2},
@@ -296,7 +301,7 @@ M$Parameters = {
         Description -> "Scalar Form Factor for H5NZGA effective vertex"
     },
     H3NGAGA == {
-    ParameterType -> External,
+        ParameterType -> External,
         BlockName -> NEUTRALFORMFACTORS,
         Value -> 0.01,
         OrderBlock -> {3},
@@ -304,7 +309,7 @@ M$Parameters = {
         Description -> "Scalar Form Factor for H3NGAGA effective vertex"
     },
     H3NZGA == {
-    ParameterType -> External,
+        ParameterType -> External,
         BlockName -> NEUTRALFORMFACTORS,
         Value -> 0.01,
         OrderBlock -> {4},
@@ -312,7 +317,7 @@ M$Parameters = {
         Description -> "Scalar Form Factor for H3NZGA effective vertex"
     },
     H3NGG == {
-    ParameterType -> External,
+        ParameterType -> External,
         BlockName -> NEUTRALFORMFACTORS,
         Value -> 0.01,
         OrderBlock -> {5},
@@ -320,7 +325,7 @@ M$Parameters = {
         Description -> "Scalar Form Factor for H3NGG effective vertex"
     },
     HHGAGA == {
-    ParameterType -> External,
+        ParameterType -> External,
         BlockName -> NEUTRALFORMFACTORS,
         Value -> 0.01,
         OrderBlock -> {6},
@@ -328,7 +333,7 @@ M$Parameters = {
         Description -> "Scalar Form Factor for HHGAGA effective vertex"
     },
     HHZGA == {
-    ParameterType -> External,
+        ParameterType -> External,
         BlockName -> NEUTRALFORMFACTORS,
         Value -> 0.01,
         OrderBlock -> {7},
@@ -336,7 +341,7 @@ M$Parameters = {
         Description -> "Scalar Form Factor for HHZGA effective vertex"
     },
     HHGG == {
-    ParameterType -> External,
+        ParameterType -> External,
         BlockName -> NEUTRALFORMFACTORS,
         Value -> 0.01,
         OrderBlock -> {8},
@@ -344,7 +349,7 @@ M$Parameters = {
         Description -> "Scalar Form Factor for HHGG effective vertex"
     },
     HLGAGA == {
-    ParameterType -> External,
+        ParameterType -> External,
         BlockName -> NEUTRALFORMFACTORS,
         Value -> 0.01,
         OrderBlock -> {9},
@@ -352,7 +357,7 @@ M$Parameters = {
         Description -> "Scalar Form Factor for HLGAGA effective vertex"
     },
     HLZGA == {
-    ParameterType -> External,
+        ParameterType -> External,
         BlockName -> NEUTRALFORMFACTORS,
         Value -> 0.01,
         OrderBlock -> {10},
@@ -360,7 +365,7 @@ M$Parameters = {
         Description -> "Scalar Form Factor for HLZGA effective vertex"
     },
     HLGG == {
-    ParameterType -> External,
+        ParameterType -> External,
         BlockName -> NEUTRALFORMFACTORS,
         Value -> 0.01,
         OrderBlock -> {11},
@@ -370,7 +375,7 @@ M$Parameters = {
 
 (* Imaginary Part *)
     IxH5PWGA == {
-    ParameterType -> External,
+        ParameterType -> External,
         BlockName -> IMxCHARGEDFORMFACTORS,
         Value -> 0.01,
         OrderBlock -> {1},
@@ -386,7 +391,7 @@ M$Parameters = {
         Description -> "Scalar Form Factor for H5WGa effective vertex, For debug only."
     },
     IxH3PWGA == {
-    ParameterType -> External,
+        ParameterType -> External,
         BlockName -> IMxCHARGEDFORMFACTORS,
         Value -> 0.01,
         OrderBlock -> {3},
@@ -394,7 +399,7 @@ M$Parameters = {
         Description -> "Scalar Form Factor for H3WGa effective vertex"
     },
     IxH3PWGATILDE == {
-    ParameterType -> External,
+        ParameterType -> External,
         BlockName -> IMxCHARGEDFORMFACTORS,
         Value -> 0.01,
         OrderBlock -> {4},
@@ -477,27 +482,27 @@ M$Parameters = {
     sh == {
         ParameterType -> Internal,
         Value -> tanth/Sqrt[1 + tanth^2],
-	TeX -> Subscript[s,H],
+    	TeX -> Subscript[s,H],
         Description -> "Sine of theta_H"},
 
     ch == {
         ParameterType -> Internal,
         Value -> Sqrt[1-sh^2],
-	TeX -> Subscript[c,H],
+    	TeX -> Subscript[c,H],
         Description -> "Cosine of theta_H"},
 
 
       vchi == {
         ParameterType -> Internal,
-        Value -> sh/Sqrt[8 Sqrt[2]Gf],
-	TeX -> Subscript[v,\[Chi]],
+        Value -> v*sh/Sqrt[8],
+    	TeX -> Subscript[v,\[Chi]],
         InteractionOrder -> {QED,-1},
         Description -> "Triplet vev"},
 
       vphi == {
         ParameterType -> Internal,
-        Value -> 2 Sqrt[2] vchi/tanth,
-	TeX -> Subscript[v,\[Phi]],
+        Value -> v*ch,
+    	TeX -> Subscript[v,\[Phi]],
         InteractionOrder -> {QED,-1},
         Description -> "Doublet vev"},
 
@@ -555,18 +560,23 @@ M$Parameters = {
 
 (* BLOCK WITH REMAINING NEW INTERNAL PARAMETERS *)
 
+    mu3sq == {
+        ParameterType -> Internal,
+        Value -> MH5^2 - (4*lam2+lam5)*vphi^2/2 - 12*(lam3+lam4)*vchi^2-6*M2coeff*vchi,
+        Description -> "Scalar Potential (parameter \\mu_3^2)"},
+
+    M1coeff == {
+        ParameterType -> Internal,
+        Value -> (mu3sq+(2*lam2-lam5)*vphi^2+4*(lam3+3*lam4)*vchi^2-6*M2coeff*vchi)*4*vchi/vphi^2,
+        Description -> "Scalar Potential (parameter M1)",
+        InteractionOrder -> {QED,1}
+    },
+
     MH3 == {
         ParameterType -> Internal,
-        Value -> Sqrt[(M1coeff/(4 vchi) + lam5/2) v^2 ],
+        Value -> Sqrt[(mu3sq+(4*lam2-lam5)*vphi^2/2+4*(lam3+3*lam4)*vchi^2-6*M2coeff*vchi)*v^2/vphi^2],
         TeX  -> Subscript[M, 3],
         Description -> "SU(2)_C triplet mass"},
-
-    MH5 == {
-        ParameterType -> Internal,
-        Value -> Sqrt[ M1coeff vphi^2 /(4 vchi) + 12 M2coeff vchi + (3/2) lam5 vphi^2 + 8 lam3 vchi^2 ] ,
-        TeX  -> Subscript[M, 5],
-        Description -> "SU(2)_C fiveplet mass"},
-
 
     Mat12sq == {
         ParameterType -> Internal,
@@ -575,22 +585,20 @@ M$Parameters = {
 
     Mat22sq == {
         ParameterType -> Internal,
-        Value -> M1coeff vphi^2/(4 vchi) - 6 M2coeff vchi + 8(lam3 + 3 lam4) vchi^2,
+        Value -> mu3sq + (2*lam2-lam5)*vphi^2 + 12*(lam3+3*lam4)*vchi^2 - 12*M2coeff*vchi,
         Description -> "Singlet Scalar Mass Matrix Element"},
-
-
-    lam1 == {
-        ParameterType -> Internal,
-        BlockName -> POTENTIALPARAM,
-        Value -> (1/(8 vphi^2))(MHL^2 + Mat12sq^2/(Mat22sq - MHL^2)),
-	TeX -> Subscript[\[Lambda],1],
-        InteractionOrder -> {QED,2},
-        Description -> "Ext. Scalar Potential"},
 
     Mat11sq == {
         ParameterType -> Internal,
-        Value -> 8 lam1 vphi^2,
+        Value -> MHL^2 + Mat12sq*Mat12sq/(Mat22sq - MHL^2),
         Description -> "Singlet Scalar Mass Matrix Element"},
+
+    lam1 == {
+        ParameterType -> Internal,
+        Value -> Mat11sq/(8 vphi^2),
+	    TeX -> Subscript[\[Lambda],1],
+        InteractionOrder -> {QED,2},
+        Description -> "Ext. Scalar Potential"},
 
     MHH == {
         ParameterType -> Internal,
@@ -598,27 +606,41 @@ M$Parameters = {
         TeX  -> Subscript[M, HH],
         Description -> " mass of the other higgs that is lighter/heavier than the 125 GeV resonance "},
 
-   sa == {
+    s2a == {
         ParameterType -> Internal,
-        Value -> Sin[0.5 ArcSin[2 Mat12sq/(MHH^2 - MHL^2)]],
-	TeX  -> Subscript[s, \[Alpha]],
+        Value -> -2*Mat12sq/(MHL^2-MHH^2),
+        Description -> "Sine of 2 times the mixing angle alpha"
+    },
+
+    c2a == {
+        ParameterType -> Internal,
+        Value -> (Mat11sq - Mat22sq)/(MHL^2-MHH^2),
+        Description -> "Cosine of 2 times the mixing angle alpha"
+    },
+
+    SignS2A == {
+        ParameterType -> Internal,
+        Value -> cond[s2a,0,s2a/(0^Sqrt[s2a*s2a]+Sqrt[s2a*s2a])],
+        (* Be Really Careful about this expression, I assume the fortran/python program will return non-zero number for 0^0 *)
+        Description -> "Sign of s2a"
+    },
+
+    sa == {
+        ParameterType -> Internal,
+        Value -> SignS2A*Sqrt[(1-c2a)/2],
+	    TeX  -> Subscript[s, \[Alpha]],
         Description -> "Sine of the mixing angle alpha"},
 
     ca == {
         ParameterType -> Internal,
         Value -> Sqrt[1-sa^2],
-	 TeX  -> Subscript[c, \[Alpha]],
+	    TeX  -> Subscript[c, \[Alpha]],
         Description -> "Cosine of the mixing angle alpha"},
 
     mu2sq == {
         ParameterType -> Internal,
         Value -> -4 lam1 vphi^2 -3(2 lam2 - lam5) vchi^2 + (3/2) M1coeff vchi,
-        Description -> "Ext. Scalar Potential (parameter \\mu_2^2)"},
-
-    mu3sq == {
-        ParameterType -> Internal,
-        Value -> -(2 lam2 - lam5)vphi^2 - 4(lam3 + 3 lam4) vchi^2 + M1coeff vphi^2/(4 vchi) + 6 M2coeff vchi,
-        Description -> "Ext. Scalar Potential (parameter \\mu_3^2)"}
+        Description -> "Ext. Scalar Potential (parameter \\mu_2^2)"}
 
 (* END OF NEW INT. PARAMS *)
 
@@ -660,14 +682,14 @@ M$ClassesDescription = {
         ClassName -> vl,
         ClassMembers -> {ve,vm,vt},
         FlavorIndex -> Generation,
-	SelfConjugate -> False,
-	Indices -> {Index[Generation]},
+	    SelfConjugate -> False,
+	    Indices -> {Index[Generation]},
         Mass -> 0,
         Width -> 0,
-	QuantumNumbers -> {LeptonNumber -> 1},
-	PropagatorLabel -> {"v", "ve", "vm", "vt"} ,
-	PropagatorType -> S,
-	PropagatorArrow -> Forward,
+	    QuantumNumbers -> {LeptonNumber -> 1},
+	    PropagatorLabel -> {"v", "ve", "vm", "vt"} ,
+	    PropagatorType -> S,
+	    PropagatorArrow -> Forward,
         PDG -> {12,14,16},
         FullName -> {"Electron-neutrino", "Mu-neutrino", "Tau-neutrino"} },
 
@@ -676,16 +698,16 @@ M$ClassesDescription = {
         ClassName -> l,
         ClassMembers -> {e, m, tt},
         FlavorIndex -> Generation,
-	SelfConjugate -> False,
-	Indices -> {Index[Generation]},
-	Mass -> {Ml, {Me, 5.11 * 10^(-4)}, {MM, 0.10566}, {MTA, 1.777}},
+    	SelfConjugate -> False,
+	    Indices -> {Index[Generation]},
+    	Mass -> {Ml, {Me, 5.11 * 10^(-4)}, {MM, 0.10566}, {MTA, 1.777}},
         Width -> 0,
-	QuantumNumbers -> {Q -> -1, LeptonNumber -> 1},
-	PropagatorLabel -> {"l", "e", "m", "tt"},
-	PropagatorType -> Straight,
+	    QuantumNumbers -> {Q -> -1, LeptonNumber -> 1},
+    	PropagatorLabel -> {"l", "e", "m", "tt"},
+	    PropagatorType -> Straight,
         ParticleName -> {"e-", "m-", "tt-"},
         AntiParticleName -> {"e+", "m+", "tt+"},
-	PropagatorArrow -> Forward,
+    	PropagatorArrow -> Forward,
         PDG -> {11, 13, 15},
         FullName -> {"Electron", "Muon", "Tau"} },
 
@@ -694,14 +716,14 @@ M$ClassesDescription = {
         ClassMembers -> {u, c, t},
         ClassName -> uq,
         FlavorIndex -> Generation,
-	SelfConjugate -> False,
-	Indices -> {Index[Generation], Index[Colour]},
-	Mass -> {Mu, {MU, 2.55*10^(-3)}, {MC, 1.42}, {MT, 172}},
+	    SelfConjugate -> False,
+	    Indices -> {Index[Generation], Index[Colour]},
+	    Mass -> {Mu, {MU, 2.55*10^(-3)}, {MC, 1.42}, {MT, 172}},
         Width -> {0, 0, {WT, 1.50833649}},
-	QuantumNumbers -> {Q -> 2/3},
-	PropagatorLabel -> {"uq", "u", "c", "t"},
-	PropagatorType -> Straight,
-	PropagatorArrow -> Forward,
+	    QuantumNumbers -> {Q -> 2/3},
+	    PropagatorLabel -> {"uq", "u", "c", "t"},
+	    PropagatorType -> Straight,
+	    PropagatorArrow -> Forward,
         PDG -> {2, 4, 6},
         FullName -> {"u-quark", "c-quark", "t-quark"}},
 
@@ -710,14 +732,14 @@ M$ClassesDescription = {
         ClassMembers -> {d, s, b},
         ClassName -> dq,
         FlavorIndex -> Generation,
-	SelfConjugate -> False,
-	Indices -> {Index[Generation], Index[Colour]},
-	Mass -> {Md, {MD,  5.04*10^(-3)}, {MS, 0.101}, {MB, 4.7}},
+	    SelfConjugate -> False,
+	    Indices -> {Index[Generation], Index[Colour]},
+	    Mass -> {Md, {MD,  5.04*10^(-3)}, {MS, 0.101}, {MB, 4.7}},
         Width -> 0,
-	QuantumNumbers -> {Q -> -1/3},
-	PropagatorLabel -> {"dq", "d", "s", "b"},
-	PropagatorType -> Straight,
-	PropagatorArrow -> Forward,
+	    QuantumNumbers -> {Q -> -1/3},
+	    PropagatorLabel -> {"dq", "d", "s", "b"},
+	    PropagatorType -> Straight,
+	    PropagatorArrow -> Forward,
         PDG -> {1,3,5},
         FullName -> {"d-quark", "s-quark", "b-quark"} },
 
@@ -790,9 +812,9 @@ M$ClassesDescription = {
 
 	U[6] == {
         ClassName -> ghB,
-	SelfConjugate -> False,
+	    SelfConjugate -> False,
         Definitions -> {ghB -> -sw ghZ + cw ghA},
-	Indices -> {},
+	    Indices -> {},
         Ghost -> B,
         Unphysical -> True},
 
@@ -800,55 +822,55 @@ M$ClassesDescription = {
 	(* Gauge bosons: Q = 0 *)
   V[1] == {
         ClassName -> A,
-	SelfConjugate -> True,
-	Indices -> {},
-	Mass -> 0,
+	    SelfConjugate -> True,
+	    Indices -> {},
+	    Mass -> 0,
         Width -> 0,
-	PropagatorLabel -> "a",
-	PropagatorType -> W,
-	PropagatorArrow -> None,
+	    PropagatorLabel -> "a",
+	    PropagatorType -> W,
+	    PropagatorArrow -> None,
         PDG -> 22,
         FullName -> "Photon" },
 
   V[2] == {
         ClassName -> Z,
-	SelfConjugate -> True,
-	Indices -> {},
-	Mass -> {MZ, 91.1876},
+	    SelfConjugate -> True,
+	    Indices -> {},
+	    Mass -> {MZ, 91.1876},
         Width -> {WZ, 2.4952},
-	PropagatorLabel -> "Z",
-	PropagatorType -> Sine,
-	PropagatorArrow -> None,
+	    PropagatorLabel -> "Z",
+	    PropagatorType -> Sine,
+	    PropagatorArrow -> None,
         PDG -> 23,
         FullName -> "Z" },
 
 	(* Gauge bosons: Q = -1 *)
   V[3] == {
         ClassName -> W,
-	SelfConjugate -> False,
-	Indices -> {},
-	Mass -> {MW, Internal},
+	    SelfConjugate -> False,
+	    Indices -> {},
+	    Mass -> {MW, Internal},
         Width -> {WW, 2.085},
-	QuantumNumbers -> {Q -> 1},
-	PropagatorLabel -> "W",
-	PropagatorType -> Sine,
-	PropagatorArrow -> Forward,
-	ParticleName ->"W+",
-	TeXParticleName ->"W^+",
-	AntiParticleName ->"W-",
-	TeXAntiParticleName ->"W-",
+	    QuantumNumbers -> {Q -> 1},
+	    PropagatorLabel -> "W",
+	    PropagatorType -> Sine,
+	    PropagatorArrow -> Forward,
+	    ParticleName ->"W+",
+	    TeXParticleName ->"W^+",
+	    AntiParticleName ->"W-",
+	    TeXAntiParticleName ->"W-",
         PDG -> 24,
         FullName -> "W" },
 
 V[4] == {
         ClassName -> G,
-	SelfConjugate -> True,
-	Indices -> {Index[Gluon]},
-	Mass -> 0,
+	    SelfConjugate -> True,
+	    Indices -> {Index[Gluon]},
+	    Mass -> 0,
         Width -> 0,
         PropagatorLabel -> G,
-	PropagatorType -> C,
-	PropagatorArrow -> None,
+	    PropagatorType -> C,
+	    PropagatorArrow -> None,
         PDG -> 21,
         FullName -> "G" },
 
@@ -866,10 +888,10 @@ V[5] == {
 
 V[6] == {
         ClassName -> B,
-	SelfConjugate -> True,
+    	SelfConjugate -> True,
         Definitions -> {B[mu_] -> -sw Z[mu] + cw A[mu]},
-	Indices -> {},
-	Mass -> 0,
+    	Indices -> {},
+	    Mass -> 0,
         Unphysical -> True},
 
 
@@ -947,7 +969,7 @@ S[5] ==  {
         FullName -> "H3p",
         TeXClassName -> "H_3^+",
         TeXParticleName -> "H_3^+",
-	TeXAntiParticleName -> "H_3^{+*}",
+	    TeXAntiParticleName -> "H_3^{+*}",
         TeXClassName -> "H_3^+",
         QuantumNumbers -> {Q -> 1} },
 
@@ -966,7 +988,7 @@ S[6] == {
 S[7] ==  {
         ClassName -> H5pp,
         SelfConjugate -> False,
-        Mass -> {MH5,Internal},
+        Mass -> {MH5,300},
         Width -> {WH5pp,1},
         PropagatorLabel -> "H5pp",
         PropagatorType -> D,
@@ -977,14 +999,14 @@ S[7] ==  {
         FullName -> "H5pp",
         TeXClassName -> "H_5^{++}",
         TeXParticleName -> "H_5^{++}",
-	TeXAntiParticleName -> "H_5^{++*}",
+	    TeXAntiParticleName -> "H_5^{++*}",
         TeXClassName -> "H_5^{++}",
         QuantumNumbers -> {Q -> 2} },
 
 S[8] ==  {
         ClassName -> H5p,
         SelfConjugate -> False,
-        Mass -> {MH5,Internal},
+        Mass -> {MH5,300},
         Width -> {WH5p,1},
         PropagatorLabel -> "H5p",
         PropagatorType -> D,
@@ -995,14 +1017,14 @@ S[8] ==  {
         FullName -> "H5p",
         TeXClassName -> "H_5^+",
         TeXParticleName -> "H_5^+",
-	TeXAntiParticleName -> "H_5^{+*}",
+	    TeXAntiParticleName -> "H_5^{+*}",
         TeXClassName -> "H_5^+",
         QuantumNumbers -> {Q -> 1} },
 
 S[9] == {
         ClassName -> H5z,
         SelfConjugate -> True,
-        Mass -> {MH5,Internal},
+        Mass -> {MH5,300},
         Width -> {WH5z,1},
         PropagatorLabel -> "H5z",
         PropagatorType -> D,

@@ -1,13 +1,13 @@
 # This file was automatically created by FeynRules 2.3.49
 # Mathematica version: 13.1.0 for Mac OS X ARM (64-bit) (June 16, 2022)
-# Date: Tue 25 Jun 2024 22:20:57
+# Date: Mon 16 Sep 2024 13:51:03
 
 
 # 
 # This is the logfile for the model GM
 
 # Authors: K. Hartling, K. Kumar, H. Logan, Y. Wu
-# Model version: 1.2.1
+# Model version: 2.0.0
 # Checking the Quantum numbers
    * Electric charge defined.
 # Checking the Lagrangians
@@ -35,7 +35,9 @@
 # Parameter definitions
 #
 
-   * All parameters are ok.
+   * Parameter SignS2A has no value. Default value 1 assigned.
+   * Parameter sa has no value. Default value 1 assigned.
+   * Parameter ca has no value. Default value 1 assigned.
 
 
 # Vertices

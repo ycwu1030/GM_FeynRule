@@ -5,9 +5,9 @@ import lorentz
 import parameters
 import vertices
 import coupling_orders
-import write_param_card
+#import write_param_card
 import propagators
-
+import object_library
 import function_library
 
 
@@ -46,5 +46,5 @@ gauge = [0, 1]
 
 
 __author__ = "K. Hartling, K. Kumar, H. Logan, Y. Wu"
-__date__ = "09. 13. 2018"
-__version__= "1.2.1"
+__date__ = "09. 16. 2024"
+__version__= "2.0.0"

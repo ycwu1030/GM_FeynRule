@@ -1,6 +1,6 @@
-# This file was automatically created by FeynRules 2.3.32
-# Mathematica version: 10.4.1 for Mac OS X x86 (64-bit) (April 17, 2016)
-# Date: Sat 15 Sep 2018 23:07:42
+# This file was automatically created by FeynRules 2.3.49
+# Mathematica version: 13.1.0 for Mac OS X ARM (64-bit) (June 16, 2022)
+# Date: Mon 16 Sep 2024 14:45:10
 
 
 from object_library import all_couplings, Coupling
@@ -10,7 +10,7 @@ from function_library import complexconjugate, re, im, csc, sec, acsc, asec, cot
 
 
 GC_1 = Coupling(name = 'GC_1',
-                value = '-(ee*complex(0,1))/3.',
+                value = '-0.3333333333333333*(ee*complex(0,1))',
                 order = {'QED':1})
 
 GC_10 = Coupling(name = 'GC_10',
@@ -78,7 +78,7 @@ GC_113 = Coupling(name = 'GC_113',
                   order = {'QED':2})
 
 GC_114 = Coupling(name = 'GC_114',
-                  value = '-(ch**2*complex(0,1)*lam5*sa*cmath.sqrt(2))/3. + (2*complex(0,1)*lam3*sa*sh**2*cmath.sqrt(2))/3. - (2*ca*ch*complex(0,1)*lam5*sh)/cmath.sqrt(3)',
+                  value = '-0.3333333333333333*(ch**2*complex(0,1)*lam5*sa*cmath.sqrt(2)) + (2*complex(0,1)*lam3*sa*sh**2*cmath.sqrt(2))/3. - (2*ca*ch*complex(0,1)*lam5*sh)/cmath.sqrt(3)',
                   order = {'QED':2})
 
 GC_115 = Coupling(name = 'GC_115',
@@ -318,7 +318,7 @@ GC_168 = Coupling(name = 'GC_168',
                   order = {'QED':2})
 
 GC_169 = Coupling(name = 'GC_169',
-                  value = '-(ch*ee**2*sh)/(2.*cw) - (ch*cw*ee**2*sh)/(2.*sw**2)',
+                  value = '-0.5*(ch*ee**2*sh)/cw - (ch*cw*ee**2*sh)/(2.*sw**2)',
                   order = {'QED':2})
 
 GC_17 = Coupling(name = 'GC_17',
@@ -346,7 +346,7 @@ GC_174 = Coupling(name = 'GC_174',
                   order = {'QED':2})
 
 GC_175 = Coupling(name = 'GC_175',
-                  value = '-(ch**2*ee**2)/(2.*cw) - (ee**2*sh**2)/cw - (cw*ee**2*sh**2)/(2.*sw**2)',
+                  value = '-0.5*(ch**2*ee**2)/cw - (ee**2*sh**2)/cw - (cw*ee**2*sh**2)/(2.*sw**2)',
                   order = {'QED':2})
 
 GC_176 = Coupling(name = 'GC_176',
@@ -354,7 +354,7 @@ GC_176 = Coupling(name = 'GC_176',
                   order = {'QED':2})
 
 GC_177 = Coupling(name = 'GC_177',
-                  value = '-(ca*ee*complex(0,1)*sh)/(2.*sw) - (ch*ee*complex(0,1)*sa*cmath.sqrt(0.6666666666666666))/sw',
+                  value = '-0.5*(ca*ee*complex(0,1)*sh)/sw - (ch*ee*complex(0,1)*sa*cmath.sqrt(0.6666666666666666))/sw',
                   order = {'QED':1})
 
 GC_178 = Coupling(name = 'GC_178',
@@ -362,7 +362,7 @@ GC_178 = Coupling(name = 'GC_178',
                   order = {'QED':1})
 
 GC_179 = Coupling(name = 'GC_179',
-                  value = '-(ch*ee*complex(0,1)*sa)/(2.*sw) - (ca*ee*complex(0,1)*sh*cmath.sqrt(0.6666666666666666))/sw',
+                  value = '-0.5*(ch*ee*complex(0,1)*sa)/sw - (ca*ee*complex(0,1)*sh*cmath.sqrt(0.6666666666666666))/sw',
                   order = {'QED':1})
 
 GC_18 = Coupling(name = 'GC_18',
@@ -374,7 +374,7 @@ GC_180 = Coupling(name = 'GC_180',
                   order = {'QED':1})
 
 GC_181 = Coupling(name = 'GC_181',
-                  value = '-(ca*ee**2*complex(0,1)*sh)/(2.*sw) - (ch*ee**2*complex(0,1)*sa*cmath.sqrt(0.6666666666666666))/sw',
+                  value = '-0.5*(ca*ee**2*complex(0,1)*sh)/sw - (ch*ee**2*complex(0,1)*sa*cmath.sqrt(0.6666666666666666))/sw',
                   order = {'QED':2})
 
 GC_182 = Coupling(name = 'GC_182',
@@ -382,7 +382,7 @@ GC_182 = Coupling(name = 'GC_182',
                   order = {'QED':2})
 
 GC_183 = Coupling(name = 'GC_183',
-                  value = '-(ee*complex(0,1)*sa*sh)/(2.*sw) + (ca*ch*ee*complex(0,1)*cmath.sqrt(0.6666666666666666))/sw',
+                  value = '-0.5*(ee*complex(0,1)*sa*sh)/sw + (ca*ch*ee*complex(0,1)*cmath.sqrt(0.6666666666666666))/sw',
                   order = {'QED':1})
 
 GC_184 = Coupling(name = 'GC_184',
@@ -394,11 +394,11 @@ GC_185 = Coupling(name = 'GC_185',
                   order = {'QED':1})
 
 GC_186 = Coupling(name = 'GC_186',
-                  value = '-(ca*ch*ee*complex(0,1))/(2.*sw) + (ee*complex(0,1)*sa*sh*cmath.sqrt(0.6666666666666666))/sw',
+                  value = '-0.5*(ca*ch*ee*complex(0,1))/sw + (ee*complex(0,1)*sa*sh*cmath.sqrt(0.6666666666666666))/sw',
                   order = {'QED':1})
 
 GC_187 = Coupling(name = 'GC_187',
-                  value = '-(ee**2*complex(0,1)*sa*sh)/(2.*sw) + (ca*ch*ee**2*complex(0,1)*cmath.sqrt(0.6666666666666666))/sw',
+                  value = '-0.5*(ee**2*complex(0,1)*sa*sh)/sw + (ca*ch*ee**2*complex(0,1)*cmath.sqrt(0.6666666666666666))/sw',
                   order = {'QED':2})
 
 GC_188 = Coupling(name = 'GC_188',
@@ -406,7 +406,7 @@ GC_188 = Coupling(name = 'GC_188',
                   order = {'QED':2})
 
 GC_189 = Coupling(name = 'GC_189',
-                  value = '-(ch**2*ee)/(2.*sw) - (ee*sh**2)/(2.*sw)',
+                  value = '-0.5*(ch**2*ee)/sw - (ee*sh**2)/(2.*sw)',
                   order = {'QED':1})
 
 GC_19 = Coupling(name = 'GC_19',
@@ -418,7 +418,7 @@ GC_190 = Coupling(name = 'GC_190',
                   order = {'QED':1})
 
 GC_191 = Coupling(name = 'GC_191',
-                  value = '-(ch**2*ee**2)/(2.*sw) - (ee**2*sh**2)/(2.*sw)',
+                  value = '-0.5*(ch**2*ee**2)/sw - (ee**2*sh**2)/(2.*sw)',
                   order = {'QED':2})
 
 GC_192 = Coupling(name = 'GC_192',
@@ -482,7 +482,7 @@ GC_204 = Coupling(name = 'GC_204',
                   order = {'QED':2})
 
 GC_205 = Coupling(name = 'GC_205',
-                  value = '-(ee**2*complex(0,1)*sa*cmath.sqrt(2))/(3.*sw**2)',
+                  value = '-0.3333333333333333*(ee**2*complex(0,1)*sa*cmath.sqrt(2))/sw**2',
                   order = {'QED':2})
 
 GC_206 = Coupling(name = 'GC_206',
@@ -538,7 +538,7 @@ GC_217 = Coupling(name = 'GC_217',
                   order = {'QED':1})
 
 GC_218 = Coupling(name = 'GC_218',
-                  value = '-(ee*complex(0,1)*cmath.sqrt(3))/(2.*sw)',
+                  value = '-0.5*(ee*complex(0,1)*cmath.sqrt(3))/sw',
                   order = {'QED':1})
 
 GC_219 = Coupling(name = 'GC_219',
@@ -562,7 +562,7 @@ GC_222 = Coupling(name = 'GC_222',
                   order = {'QED':1})
 
 GC_223 = Coupling(name = 'GC_223',
-                  value = '-(ch*ee*complex(0,1))/(2.*sw*cmath.sqrt(3))',
+                  value = '-0.5*(ch*ee*complex(0,1))/(sw*cmath.sqrt(3))',
                   order = {'QED':1})
 
 GC_224 = Coupling(name = 'GC_224',
@@ -622,11 +622,11 @@ GC_236 = Coupling(name = 'GC_236',
                   order = {'QED':2})
 
 GC_237 = Coupling(name = 'GC_237',
-                  value = '-(ee**2*complex(0,1)*cmath.sqrt(3))/(2.*sw)',
+                  value = '-0.5*(ee**2*complex(0,1)*cmath.sqrt(3))/sw',
                   order = {'QED':2})
 
 GC_238 = Coupling(name = 'GC_238',
-                  value = '-(ch*ee**2)/(2.*sw)',
+                  value = '-0.5*(ch*ee**2)/sw',
                   order = {'QED':2})
 
 GC_239 = Coupling(name = 'GC_239',
@@ -646,11 +646,11 @@ GC_241 = Coupling(name = 'GC_241',
                   order = {'QED':2})
 
 GC_242 = Coupling(name = 'GC_242',
-                  value = '-(ee*MW)/(2.*sw)',
+                  value = '-0.5*(ee*MW)/sw',
                   order = {'QED':1})
 
 GC_243 = Coupling(name = 'GC_243',
-                  value = '-(ee*complex(0,1)*MW)/(2.*sw)',
+                  value = '-0.5*(ee*complex(0,1)*MW)/sw',
                   order = {'QED':1})
 
 GC_244 = Coupling(name = 'GC_244',
@@ -662,7 +662,7 @@ GC_245 = Coupling(name = 'GC_245',
                   order = {'QED':1})
 
 GC_246 = Coupling(name = 'GC_246',
-                  value = '-(ee*complex(0,1)*MZ)/(2.*cw*sw)',
+                  value = '-0.5*(ee*complex(0,1)*MZ)/(cw*sw)',
                   order = {'QED':1})
 
 GC_247 = Coupling(name = 'GC_247',
@@ -682,7 +682,7 @@ GC_25 = Coupling(name = 'GC_25',
                  order = {'Eff':1})
 
 GC_250 = Coupling(name = 'GC_250',
-                  value = '-(ee*complex(0,1)*sh)/(2.*sw*cmath.sqrt(3))',
+                  value = '-0.5*(ee*complex(0,1)*sh)/(sw*cmath.sqrt(3))',
                   order = {'QED':1})
 
 GC_251 = Coupling(name = 'GC_251',
@@ -690,7 +690,7 @@ GC_251 = Coupling(name = 'GC_251',
                   order = {'QED':1})
 
 GC_252 = Coupling(name = 'GC_252',
-                  value = '-(ee**2*sh)/(2.*sw)',
+                  value = '-0.5*(ee**2*sh)/sw',
                   order = {'QED':2})
 
 GC_253 = Coupling(name = 'GC_253',
@@ -746,7 +746,7 @@ GC_264 = Coupling(name = 'GC_264',
                   order = {'QED':2})
 
 GC_265 = Coupling(name = 'GC_265',
-                  value = '-(cw*ee*complex(0,1))/(2.*sw) - (ee*complex(0,1)*sw)/(6.*cw)',
+                  value = '-0.5*(cw*ee*complex(0,1))/sw - (ee*complex(0,1)*sw)/(6.*cw)',
                   order = {'QED':1})
 
 GC_266 = Coupling(name = 'GC_266',
@@ -754,7 +754,7 @@ GC_266 = Coupling(name = 'GC_266',
                   order = {'QED':1})
 
 GC_267 = Coupling(name = 'GC_267',
-                  value = '-(cw*ee*complex(0,1))/(2.*sw) + (ee*complex(0,1)*sw)/(2.*cw)',
+                  value = '-0.5*(cw*ee*complex(0,1))/sw + (ee*complex(0,1)*sw)/(2.*cw)',
                   order = {'QED':1})
 
 GC_268 = Coupling(name = 'GC_268',
@@ -770,7 +770,7 @@ GC_27 = Coupling(name = 'GC_27',
                  order = {'Eff':1})
 
 GC_270 = Coupling(name = 'GC_270',
-                  value = '-(ch*cw*ee*complex(0,1))/(2.*sw) - (ch*ee*complex(0,1)*sw)/(2.*cw)',
+                  value = '-0.5*(ch*cw*ee*complex(0,1))/sw - (ch*ee*complex(0,1)*sw)/(2.*cw)',
                   order = {'QED':1})
 
 GC_271 = Coupling(name = 'GC_271',
@@ -794,11 +794,11 @@ GC_275 = Coupling(name = 'GC_275',
                   order = {'QED':2})
 
 GC_276 = Coupling(name = 'GC_276',
-                  value = '-(cw*ee*complex(0,1)*MW)/(2.*sw) + (ee*complex(0,1)*MW*sw)/(2.*cw)',
+                  value = '-0.5*(cw*ee*complex(0,1)*MW)/sw + (ee*complex(0,1)*MW*sw)/(2.*cw)',
                   order = {'QED':1})
 
 GC_277 = Coupling(name = 'GC_277',
-                  value = '-(cw*ee*complex(0,1)*sh)/(2.*sw) - (ee*complex(0,1)*sh*sw)/(2.*cw)',
+                  value = '-0.5*(cw*ee*complex(0,1)*sh)/sw - (ee*complex(0,1)*sh*sw)/(2.*cw)',
                   order = {'QED':1})
 
 GC_278 = Coupling(name = 'GC_278',
@@ -814,11 +814,11 @@ GC_28 = Coupling(name = 'GC_28',
                  order = {'Eff':1})
 
 GC_280 = Coupling(name = 'GC_280',
-                  value = '-(ca*cw*ee*sh)/(2.*sw) - (ca*ee*sh*sw)/(2.*cw) - (ch*cw*ee*sa*cmath.sqrt(0.6666666666666666))/sw - (ch*ee*sa*sw*cmath.sqrt(0.6666666666666666))/cw',
+                  value = '(ca*cw*ee*sh)/(2.*sw) + (ca*ee*sh*sw)/(2.*cw) + (ch*cw*ee*sa*cmath.sqrt(0.6666666666666666))/sw + (ch*ee*sa*sw*cmath.sqrt(0.6666666666666666))/cw',
                   order = {'QED':1})
 
 GC_281 = Coupling(name = 'GC_281',
-                  value = '-(ch*cw*ee*sa)/(2.*sw) - (ch*ee*sa*sw)/(2.*cw) - (ca*cw*ee*sh*cmath.sqrt(0.6666666666666666))/sw - (ca*ee*sh*sw*cmath.sqrt(0.6666666666666666))/cw',
+                  value = '-0.5*(ch*cw*ee*sa)/sw - (ch*ee*sa*sw)/(2.*cw) - (ca*cw*ee*sh*cmath.sqrt(0.6666666666666666))/sw - (ca*ee*sh*sw*cmath.sqrt(0.6666666666666666))/cw',
                   order = {'QED':1})
 
 GC_282 = Coupling(name = 'GC_282',
@@ -826,15 +826,15 @@ GC_282 = Coupling(name = 'GC_282',
                   order = {'QED':2})
 
 GC_283 = Coupling(name = 'GC_283',
-                  value = '-(cw*ee*sa*sh)/(2.*sw) - (ee*sa*sh*sw)/(2.*cw) + (ca*ch*cw*ee*cmath.sqrt(0.6666666666666666))/sw + (ca*ch*ee*sw*cmath.sqrt(0.6666666666666666))/cw',
+                  value = '(cw*ee*sa*sh)/(2.*sw) + (ee*sa*sh*sw)/(2.*cw) - (ca*ch*cw*ee*cmath.sqrt(0.6666666666666666))/sw - (ca*ch*ee*sw*cmath.sqrt(0.6666666666666666))/cw',
                   order = {'QED':1})
 
 GC_284 = Coupling(name = 'GC_284',
-                  value = '-(ca*ch*cw*ee)/(2.*sw) - (ca*ch*ee*sw)/(2.*cw) + (cw*ee*sa*sh*cmath.sqrt(0.6666666666666666))/sw + (ee*sa*sh*sw*cmath.sqrt(0.6666666666666666))/cw',
+                  value = '-0.5*(ca*ch*cw*ee)/sw - (ca*ch*ee*sw)/(2.*cw) + (cw*ee*sa*sh*cmath.sqrt(0.6666666666666666))/sw + (ee*sa*sh*sw*cmath.sqrt(0.6666666666666666))/cw',
                   order = {'QED':1})
 
 GC_285 = Coupling(name = 'GC_285',
-                  value = '-(ch**2*cw*ee*complex(0,1))/(2.*sw) - (cw*ee*complex(0,1)*sh**2)/(2.*sw) + (ch**2*ee*complex(0,1)*sw)/(2.*cw) + (ee*complex(0,1)*sh**2*sw)/(2.*cw)',
+                  value = '-0.5*(ch**2*cw*ee*complex(0,1))/sw - (cw*ee*complex(0,1)*sh**2)/(2.*sw) + (ch**2*ee*complex(0,1)*sw)/(2.*cw) + (ee*complex(0,1)*sh**2*sw)/(2.*cw)',
                   order = {'QED':1})
 
 GC_286 = Coupling(name = 'GC_286',
@@ -954,7 +954,7 @@ GC_310 = Coupling(name = 'GC_310',
                   order = {'QED':1})
 
 GC_311 = Coupling(name = 'GC_311',
-                  value = '-(ch*ee**2*complex(0,1)*vphi)/(2.*cw) - (ee**2*complex(0,1)*sh*vchi*cmath.sqrt(2))/cw',
+                  value = '-0.5*(ch*ee**2*complex(0,1)*vphi)/cw - (ee**2*complex(0,1)*sh*vchi*cmath.sqrt(2))/cw',
                   order = {'QED':1})
 
 GC_312 = Coupling(name = 'GC_312',
@@ -1094,7 +1094,7 @@ GC_342 = Coupling(name = 'GC_342',
                   order = {'QED':1})
 
 GC_343 = Coupling(name = 'GC_343',
-                  value = '-(ee**2*complex(0,1)*sh*vphi)/(2.*sw) + (ch*ee**2*complex(0,1)*vchi*cmath.sqrt(2))/sw',
+                  value = '-0.5*(ee**2*complex(0,1)*sh*vphi)/sw + (ch*ee**2*complex(0,1)*vchi*cmath.sqrt(2))/sw',
                   order = {'QED':1})
 
 GC_344 = Coupling(name = 'GC_344',
@@ -1702,7 +1702,7 @@ GC_58 = Coupling(name = 'GC_58',
                  order = {'QED':2})
 
 GC_59 = Coupling(name = 'GC_59',
-                 value = '-(ch*ee**2*complex(0,1)*sa)/(2.*cw) - (ca*ee**2*complex(0,1)*sh*cmath.sqrt(0.6666666666666666))/cw',
+                 value = '-0.5*(ch*ee**2*complex(0,1)*sa)/cw - (ca*ee**2*complex(0,1)*sh*cmath.sqrt(0.6666666666666666))/cw',
                  order = {'QED':2})
 
 GC_6 = Coupling(name = 'GC_6',
@@ -1762,7 +1762,7 @@ GC_71 = Coupling(name = 'GC_71',
                  order = {'QED':2})
 
 GC_72 = Coupling(name = 'GC_72',
-                 value = '-(ca*ch*ee**2*complex(0,1))/(2.*cw) + (ee**2*complex(0,1)*sa*sh*cmath.sqrt(0.6666666666666666))/cw',
+                 value = '-0.5*(ca*ch*ee**2*complex(0,1))/cw + (ee**2*complex(0,1)*sa*sh*cmath.sqrt(0.6666666666666666))/cw',
                  order = {'QED':2})
 
 GC_73 = Coupling(name = 'GC_73',
