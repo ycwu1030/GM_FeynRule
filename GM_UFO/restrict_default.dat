@@ -58,8 +58,8 @@ Block mass
     4 0.000000e+00 # MC
     5 4.700000e+00 # MB
     6 1.720000e+02 # MT
-   11 5.110000e-04 # Me
-   13 1.056600e-01 # MM
+   11 0.000000e+00 # Me
+   13 0.000000e+00 # MM
    15 1.777000e+00 # MTA
    23 9.118760e+01 # MZ
    25 1.250000e+02 # MHL
@@ -75,9 +75,9 @@ Block mass
   21 0.000000 # g : 0.0
   22 0.000000 # a : 0.0
   24 7.982436e+01 # w+ : cmath.sqrt(MZ__exp__2/2. + cmath.sqrt(MZ__exp__4/4. - (aEW*cmath.pi*MZ__exp__2)/(Gf*sqrt__2)))
-  252 2.585255e+02 # hh : cmath.sqrt(Mat11sq + Mat22sq - MHL__exp__2)
-  253 2.725409e+02 # h3p : cmath.sqrt((v__exp__2*(mu3sq - 6*M2coeff*vchi + 4*(lam3 + 3*lam4)*vchi__exp__2 + ((4*lam2 - lam5)*vphi__exp__2)/2.))/vphi__exp__2)
-  254 2.725409e+02 # h3z : MH3
+  252 2.375230e+02 # hh : cmath.sqrt(Mat11sq + Mat22sq - MHL__exp__2)
+  253 2.571418e+02 # h3p : cmath.sqrt((v__exp__2*(mu3sq - 6*M2coeff*vchi + 4*(lam3 + 3*lam4)*vchi__exp__2 + ((4*lam2 - lam5)*vphi__exp__2)/2.))/vphi__exp__2)
+  254 2.571418e+02 # h3z : MH3
   255 3.000000e+02 # h5pp : MH5
   256 3.000000e+02 # h5p : MH5
 
@@ -115,8 +115,8 @@ Block yukawa
     4 0.000000e+00 # ymc
     5 4.700000e+00 # ymb
     6 1.720000e+02 # ymt
-   11 5.110000e-04 # yme
-   13 1.056600e-01 # ymm
+   11 0.000000e+00 # yme
+   13 0.000000e+00 # ymm
    15 1.777000e+00 # ymtau
 
 ###################################
